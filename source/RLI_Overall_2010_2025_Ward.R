@@ -6,8 +6,8 @@ library(INBOtheme)
 conflicted::conflicts_prefer(dplyr::filter)
 
 df <- read_delim("./data/tblRLCEurope20102025_short.csv",
-								 delim = ";") %>% 
-	filter(Year != "y1999") %>% 
+								 delim = ";") %>%
+	filter(Year != "y1999") %>%
 	filter(nYears >= 2)
 	#filter(GlobalRange != "Range extends outside Palearctic and Holarctic")
 head(df)
@@ -26,17 +26,18 @@ df_wide <- df %>%
 head(df_wide)
 nrow(df_wide)
 
-df_wide <- df_wide %>% 
-	#filter(!is.na(RLC_y2025)) %>% 
-	#filter(!is.na(RLC_y2010)) %>% 
+df_wide <- df_wide %>%
+	#filter(!is.na(RLC_y2025)) %>%
+	#filter(!is.na(RLC_y2010)) %>%
 	select(Speciesname,
 				 RLC_y2010,
 				 RLC_y2025)
 head(df_wide)
 nrow(df_wide)
 
+dir.create("output/tables", recursive = TRUE, showWarnings = FALSE)
 write_delim(df_wide,
-						"./Tables/specieslistanalysis.csv",
+						"./output/tables/specieslistanalysis.csv",
 						delim = ";")
 
 #score <- c(LC = 0, NT = 1, VU = 2, EN = 4, CR = 8, EX = 16, RE = 16) # what about DD? doubling steps
@@ -154,7 +155,7 @@ p <- ggplot(rli_summary_Overall,
 				panel.background = element_rect(fill = "white",
 																				colour = "grey",
 																				linewidth = 1,
-																				linetype = "solid"), 
+																				linetype = "solid"),
 				panel.grid.major = element_line(linewidth = 0.1,
 																				linetype = 1,
 																				colour = "grey"),
@@ -167,7 +168,8 @@ p <- ggplot(rli_summary_Overall,
 	ggtitle("Overall")
 p
 
-ggsave("./Figs/Summary/RLI/RLI_EuropeanButterflies2010_2025_all.jpg",
+dir.create("output/figures/rli", recursive = TRUE, showWarnings = FALSE)
+ggsave("./output/figures/rli/RLI_EuropeanButterflies2010_2025_all.jpg",
 			 width = 10,
 			 height = 7,
 			 dpi = 150)
@@ -179,7 +181,7 @@ rli_summary_Overall <- tibble(
 	n = nrow(df_wide)
 )
 rli_summary_Overall$label <- "All"
-	
+
 rli_summary_Overall <- rli_summary_Overall %>%
 	mutate(
 		n_specs = mean_difference * n * 5,
@@ -202,7 +204,7 @@ p <- ggplot(
 ) +
 	geom_errorbar(aes(colour = effect),
 								linewidth = 2) +
-	
+
 	# Add a vertical dashed line at 0 for reference
 	geom_hline(yintercept = 0,
 						 linetype = "dashed",
@@ -243,7 +245,7 @@ p <- ggplot(
 				panel.background = element_rect(fill = "white",
 																				colour = "grey",
 																				linewidth = 1,
-																				linetype = "solid"), 
+																				linetype = "solid"),
 				panel.grid.major = element_line(linewidth = 0.1,
 																				linetype = 1,
 																				colour = "grey"),
@@ -252,14 +254,15 @@ p <- ggplot(
 																					linetype = 1),
 				axis.title.y = element_text(angle = 90,
 																		vjust = 0.5)) +
-	scale_x_discrete(labels = function(x) str_wrap(x, width = 20)) + 
-	scale_y_continuous(limits = c(-0.3, 0.05), 
+	scale_x_discrete(labels = function(x) str_wrap(x, width = 20)) +
+	scale_y_continuous(limits = c(-0.3, 0.05),
 										 breaks = seq(-0.3, 0.05, by = 0.05),
 										 labels = label_number(accuracy = 0.01)) +
 	labs(color = "Trend")
 p
 
-ggsave("./Figs/Summary/diffRLI/diffRLI_EuropeanButterflies2010_2025_all.jpg",
+dir.create("output/figures/diff_rli", recursive = TRUE, showWarnings = FALSE)
+ggsave("./output/figures/diff_rli/diffRLI_EuropeanButterflies2010_2025_all.jpg",
 			 width = 12,
 			 height = 5,
 			 dpi = 150)

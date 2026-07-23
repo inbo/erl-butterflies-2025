@@ -9,19 +9,19 @@ conflicted::conflicts_prefer(dplyr::filter)
 # Read data #
 #############
 dfTraits <- read_delim("./data/tblTraitGlobalDistribution.csv",
-								 delim = ";") %>% 
-	filter(Trait == "GlobalDistribution") %>% 
-	filter(nYears >= 2) %>% 
+								 delim = ";") %>%
+	filter(Trait == "GlobalDistribution") %>%
+	filter(nYears >= 2) %>%
 	select(SpeciesnameFull,
 				 Trait,
-				 TraitValue) %>% 
+				 TraitValue) %>%
 	rename(Speciesname = SpeciesnameFull)
 head(dfTraits)
 nrow(dfTraits)
 
 dfRLC <- read_delim("./data/tblRLCEurope20102025_short.csv",
-											 delim = ";") %>% 
-	filter(Year != "y1999") %>% 
+											 delim = ";") %>%
+	filter(Year != "y1999") %>%
 	filter(!is.na(RLC))
 head(dfRLC)
 nrow(dfRLC)
@@ -38,8 +38,8 @@ unique(dfTraitRLC$Speciesname)
 #####################
 # European endemics #
 #####################
-df <- dfTraitRLC %>% 
-	filter(!is.na(RLC)) %>% 
+df <- dfTraitRLC %>%
+	filter(!is.na(RLC)) %>%
 	filter(TraitValue == "Europe")
 head(df)
 nrow(df)
@@ -54,9 +54,9 @@ df_wide <- df %>%
 head(df_wide)
 nrow(df_wide)
 
-df_wide <- df_wide %>% 
-	#filter(!is.na(RLC_y2025)) %>% 
-	#filter(!is.na(RLC_y2010)) %>% 
+df_wide <- df_wide %>%
+	#filter(!is.na(RLC_y2025)) %>%
+	#filter(!is.na(RLC_y2010)) %>%
 	select(Speciesname,
 				 RLC_y2010,
 				 RLC_y2025)
@@ -149,16 +149,16 @@ df_summary_Europe <- tibble(
 	lower_ci = ci_diff[1],
 	upper_ci = ci_diff[2],
 	n = nrow(df_wide)
-) %>% 
-	mutate(globalDistribution = "Europe") %>% 
+) %>%
+	mutate(globalDistribution = "Europe") %>%
 	select(globalDistribution, n, lower_ci, mean_difference, upper_ci)
 df_summary_Europe
 
 ######################
 # Palearctic species #
 ######################
-df <- dfTraitRLC %>% 
-	filter(!is.na(RLC)) %>% 
+df <- dfTraitRLC %>%
+	filter(!is.na(RLC)) %>%
 	filter(TraitValue == "Palearctic")
 head(df)
 nrow(df)
@@ -173,9 +173,9 @@ df_wide <- df %>%
 head(df_wide)
 nrow(df_wide)
 
-df_wide <- df_wide %>% 
-	#filter(!is.na(RLC_y2025)) %>% 
-	#filter(!is.na(RLC_y2010)) %>% 
+df_wide <- df_wide %>%
+	#filter(!is.na(RLC_y2025)) %>%
+	#filter(!is.na(RLC_y2010)) %>%
 	select(Speciesname,
 				 RLC_y2010,
 				 RLC_y2025)
@@ -264,16 +264,16 @@ df_summary_Palearctic <- tibble(
 	lower_ci = ci_diff[1],
 	upper_ci = ci_diff[2],
 	n = nrow(df_wide)
-) %>% 
-	mutate(globalDistribution = "Palearctic") %>% 
+) %>%
+	mutate(globalDistribution = "Palearctic") %>%
 	select(globalDistribution, n, lower_ci, mean_difference, upper_ci)
 df_summary_Palearctic
 
 #####################
 # Holarctic species #
 #####################
-df <- dfTraitRLC %>% 
-	filter(!is.na(RLC)) %>% 
+df <- dfTraitRLC %>%
+	filter(!is.na(RLC)) %>%
 	filter(TraitValue == "Holarctic")
 head(df)
 nrow(df)
@@ -288,9 +288,9 @@ df_wide <- df %>%
 head(df_wide)
 nrow(df_wide)
 
-df_wide <- df_wide %>% 
-	#filter(!is.na(RLC_y2025)) %>% 
-	#filter(!is.na(RLC_y2010)) %>% 
+df_wide <- df_wide %>%
+	#filter(!is.na(RLC_y2025)) %>%
+	#filter(!is.na(RLC_y2010)) %>%
 	select(Speciesname,
 				 RLC_y2010,
 				 RLC_y2025)
@@ -379,16 +379,16 @@ df_summary_Holarctic <- tibble(
 	lower_ci = ci_diff[1],
 	upper_ci = ci_diff[2],
 	n = nrow(df_wide)
-) %>% 
-	mutate(globalDistribution = "Holarctic") %>% 
+) %>%
+	mutate(globalDistribution = "Holarctic") %>%
 	select(globalDistribution, n, lower_ci, mean_difference, upper_ci)
 df_summary_Holarctic
 
 ##############################
 # Western Palearctic species #
 ##############################
-df <- dfTraitRLC %>% 
-	filter(!is.na(RLC)) %>% 
+df <- dfTraitRLC %>%
+	filter(!is.na(RLC)) %>%
 	filter(TraitValue == "Western Palearctic")
 head(df)
 nrow(df)
@@ -403,9 +403,9 @@ df_wide <- df %>%
 head(df_wide)
 nrow(df_wide)
 
-df_wide <- df_wide %>% 
-	#filter(!is.na(RLC_y2025)) %>% 
-	#filter(!is.na(RLC_y2010)) %>% 
+df_wide <- df_wide %>%
+	#filter(!is.na(RLC_y2025)) %>%
+	#filter(!is.na(RLC_y2010)) %>%
 	select(Speciesname,
 				 RLC_y2010,
 				 RLC_y2025)
@@ -494,16 +494,16 @@ df_summary_WesternPalearctic <- tibble(
 	lower_ci = ci_diff[1],
 	upper_ci = ci_diff[2],
 	n = nrow(df_wide)
-) %>% 
-	mutate(globalDistribution = "Western Palearctic") %>% 
+) %>%
+	mutate(globalDistribution = "Western Palearctic") %>%
 	select(globalDistribution, n, lower_ci, mean_difference, upper_ci)
 df_summary_WesternPalearctic
 
 #########################
 # Mainly outside Europe #
 #########################
-df <- dfTraitRLC %>% 
-	filter(!is.na(RLC)) %>% 
+df <- dfTraitRLC %>%
+	filter(!is.na(RLC)) %>%
 	filter(TraitValue == "Mainly outside Europe")
 head(df)
 nrow(df)
@@ -518,9 +518,9 @@ df_wide <- df %>%
 head(df_wide)
 nrow(df_wide)
 
-df_wide <- df_wide %>% 
-	#filter(!is.na(RLC_y2025)) %>% 
-	#filter(!is.na(RLC_y2010)) %>% 
+df_wide <- df_wide %>%
+	#filter(!is.na(RLC_y2025)) %>%
+	#filter(!is.na(RLC_y2010)) %>%
 	select(Speciesname,
 				 RLC_y2010,
 				 RLC_y2025)
@@ -609,8 +609,8 @@ df_summary_OutsideEurope <- tibble(
 	lower_ci = ci_diff[1],
 	upper_ci = ci_diff[2],
 	n = nrow(df_wide)
-) %>% 
-	mutate(globalDistribution = "Mainly outside Europe") %>% 
+) %>%
+	mutate(globalDistribution = "Mainly outside Europe") %>%
 	select(globalDistribution, n, lower_ci, mean_difference, upper_ci)
 df_summary_OutsideEurope
 
@@ -700,7 +700,7 @@ p <- ggplot(rli_summary_all,
 				panel.background = element_rect(fill = "white",
 																				colour = "grey",
 																				linewidth = 1,
-																				linetype = "solid"), 
+																				linetype = "solid"),
 				panel.grid.major = element_line(linewidth = 0.1,
 																				linetype = 1,
 																				colour = "grey"),
@@ -715,8 +715,9 @@ p <- ggplot(rli_summary_all,
 	ggtitle("Global distribution")
 p
 
+dir.create("output/figures/rli", recursive = TRUE, showWarnings = FALSE)
 ggsave(
-  "./Figs/Summary/RLI/RLI_EuropeanButterflies2010_2025_GlobalDistribution.jpg",
+  "./output/figures/rli/RLI_EuropeanButterflies2010_2025_GlobalDistribution.jpg",
   plot = p,
   width = 6,
   height = 4,
@@ -757,7 +758,7 @@ p <- ggplot(
   ) +
 	geom_errorbar(linewidth = 1.5,
 								colour = "darkgrey") +
-	
+
 	# Add a vertical dashed line at 0 for reference
 	geom_hline(yintercept = 0,
 						 linetype = "dashed",
@@ -798,7 +799,7 @@ p <- ggplot(
         panel.background = element_rect(fill = "white",
                                         colour = "grey",
                                         linewidth = 1,
-                                        linetype = "solid"), 
+                                        linetype = "solid"),
         panel.grid.major = element_line(linewidth = 0.1,
                                         linetype = 1,
                                         colour = "grey"),
@@ -807,15 +808,16 @@ p <- ggplot(
                                           linetype = 1),
         axis.title.y = element_text(angle = 90,
                                     vjust = 0.5)) +
-  scale_x_discrete(labels = function(x) str_wrap(x, width = 20)) + 
-  scale_y_continuous(limits = c(-0.3, 0.05), 
+  scale_x_discrete(labels = function(x) str_wrap(x, width = 20)) +
+  scale_y_continuous(limits = c(-0.3, 0.05),
                      breaks = seq(-0.3, 0.05, by = 0.05),
                      labels = label_number(accuracy = 0.01)) +
   labs(color = "Trend")
 p
 
+dir.create("output/figures/diff_rli", recursive = TRUE, showWarnings = FALSE)
 ggsave(
-  "./Figs/Summary/diffRLI/diffRLI_EuropeanButterflies2010_2025_GlobalDistribution.jpg",
+  "./output/figures/diff_rli/diffRLI_EuropeanButterflies2010_2025_GlobalDistribution.jpg",
   plot = p,
   width = 12,
   height = 5,
