@@ -1,7 +1,7 @@
 <!-- badges: start -->
 ![Language: en-GB](https://img.shields.io/badge/language-en--GB-c04384)
-[![CC BY 4.0](https://img.shields.io/badge/License-CC BY 4.0-brightgreen)](https://raw.githubusercontent.com/inbo/citeme/refs/heads/main/inst/licenses/cc_by_4_0.md)
-![version: 0.0.0](https://img.shields.io/badge/version-0.0.0-c04384)
+[![CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-brightgreen)](https://raw.githubusercontent.com/inbo/citeme/refs/heads/main/inst/licenses/cc_by_4_0.md)
+[![Release](https://img.shields.io/github/release/inbo/erl-butterflies-2025.svg)](https://github.com/inbo/erl-butterflies-2025/releases)
 [![Project Status: Concept - Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 <!-- badges: end -->
 
