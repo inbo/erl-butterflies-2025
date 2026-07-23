@@ -1,0 +1,50 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using these metadata.
+title: "Code and analyses for the 2025 European Red List of butterflies and comparison
+  with the 2010 assessment"
+authors:
+- given-names: Dirk
+  family-names: Maes
+  affiliation: Research Institute for Nature and Forest (INBO)
+  orcid: 0000-0002-7947-3788
+- given-names: Martin S.
+  family-names: Warren
+  affiliation: Butterfly Conservation Europe
+- given-names: Sam
+  family-names: Ellis
+  affiliation: Butterfly Conservation Europe
+- given-names: Ward
+  family-names: Langeraert
+  affiliation: Research Institute for Nature and Forest (INBO)
+  orcid: 0000-0002-5900-8109
+- given-names: Rudi
+  family-names: Verovnik
+  affiliation: University of Ljubljana
+  orcid: 0000-0002-5841-5925
+- given-names: Chris A. M.
+  family-names: van Swaay
+  affiliation: Dutch Butterfly Conservation
+  orcid: 0000-0003-0927-2216
+keywords:
+- European butterflies
+- Red List Index
+- extinction risk
+- conservation status
+- species traits
+contact:
+- given-names: Dirk
+  family-names: Maes
+  affiliation: Research Institute for Nature and Forest (INBO)
+  orcid: 0000-0002-7947-3788
+doi: ~
+license: CC BY 4.0
+repository-code: https://github.com/inbo/erl-butterflies-2025/
+type: software
+abstract: "This repository contains the reproducible analyses that investigates changes
+  in the conservation status of European butterflies by comparing the 2010 and 2025
+  European Red Lists. It quantifies changes in extinction risk using the Red List
+  Index (RLI) and examines how ecological, biogeographical, and life-history traits
+  are associated with changes in species' threat status. The analyses combine Red
+  List assessments with species trait data to identify the groups of butterflies that
+  are most vulnerable and to provide evidence for conservation policy and biodiversity
+  monitoring across Europe."
