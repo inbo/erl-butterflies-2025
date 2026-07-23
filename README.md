@@ -29,6 +29,36 @@
 
 <!-- community: inbo -->
 
+### Description
 <!-- description: start -->
 This repository contains the reproducible analyses that investigates changes in the conservation status of European butterflies by comparing the 2010 and 2025 European Red Lists. It quantifies changes in extinction risk using the Red List Index (RLI) and examines how ecological, biogeographical, and life-history traits are associated with changes in species' threat status. The analyses combine Red List assessments with species trait data to identify the groups of butterflies that are most vulnerable and to provide evidence for conservation policy and biodiversity monitoring across Europe.
 <!-- description: end -->
+
+### Order of execution
+
+Follow the steps below to run the scripts in a logical order.
+
+> coming soon
+
+### Repo structure
+
+```bash
+├── source                         ├ ...
+├── data                           ├ ...
+├── output                         ├ ...
+├── media                          ├ ...
+├── checklist.yml                  ├ options checklist package (https://github.com/inbo/checklist)
+├── inst
+│   └── en_gb.dic                  ├ dictionary with words that should not be checked by the checklist package
+├── .github                        │ 
+│   ├── workflows                  │ 
+│   │   └── checklist_project.yml  ├ GitHub repo settings
+│   ├── CODE_OF_CONDUCT.md         │ 
+│   └── CONTRIBUTING.md            │
+├── erl-butterflies-2025.Rproj     ├ R project
+├── README.md                      ├ project description
+├── LICENSE.md                     ├ licence
+├── CITATION.cff                   ├ citation info
+├── .zenodo.json                   ├ zenodo metadata
+└── .gitignore                     ├ files to ignore
+```
