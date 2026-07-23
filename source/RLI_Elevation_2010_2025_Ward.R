@@ -9,19 +9,19 @@ conflicted::conflicts_prefer(dplyr::filter)
 # Read data #
 #############
 dfTraits <- read_delim("./data/tblTraitElevation.csv",
-											 delim = ";") %>% 
-	filter(Trait == "Elevation") %>% 
-	filter(nYears >= 2) %>% 
+											 delim = ";") %>%
+	filter(Trait == "Elevation") %>%
+	filter(nYears >= 2) %>%
 	select(SpeciesnameFull,
 				 Trait,
-				 TraitValue) %>% 
+				 TraitValue) %>%
 	rename(Speciesname = SpeciesnameFull)
 head(dfTraits)
 nrow(dfTraits)
 
 dfRLC <- read_delim("./data/tblRLCEurope20102025_short.csv",
-										delim = ";") %>% 
-	filter(Year != "y1999") %>% 
+										delim = ";") %>%
+	filter(Year != "y1999") %>%
 	filter(!is.na(RLC))
 head(dfRLC)
 nrow(dfRLC)
@@ -35,7 +35,7 @@ nrow(dfTraitRLC)
 
 unique(dfTraitRLC$Speciesname)
 
-dfTraitRLC <- dfTraitRLC %>% 
+dfTraitRLC <- dfTraitRLC %>%
 	mutate(TraitValue = case_when(TraitValue == "VeryLow" ~ "Lowland",
 																TraitValue == "Low" ~ "Lowland",
 																TraitValue == "Intermediate" ~ "Intermediate",
@@ -47,9 +47,9 @@ nrow(dfTraitRLC)
 ########
 # Low  #
 ########
-df <- dfTraitRLC %>% 
-	filter(TraitValue == "Lowland") %>% 
-	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>% 
+df <- dfTraitRLC %>%
+	filter(TraitValue == "Lowland") %>%
+	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>%
 	filter(!is.na(RLC))
 head(df)
 nrow(df)
@@ -64,9 +64,9 @@ df_wide <- df %>%
 head(df_wide)
 nrow(df_wide)
 
-df_wide <- df_wide %>% 
-	#filter(!is.na(RLC_y2025)) %>% 
-	#filter(!is.na(RLC_y2010)) %>% 
+df_wide <- df_wide %>%
+	#filter(!is.na(RLC_y2025)) %>%
+	#filter(!is.na(RLC_y2010)) %>%
 	select(Speciesname,
 				 RLC_y2010,
 				 RLC_y2025)
@@ -154,17 +154,17 @@ df_summary_Low <- tibble(
 	lower_ci = ci_diff[1],
 	upper_ci = ci_diff[2],
 	n = nrow(df_wide)
-) %>% 
-	mutate(Elevation = "Lowland") %>% 
+) %>%
+	mutate(Elevation = "Lowland") %>%
 	select(Elevation, n, lower_ci, mean_difference, upper_ci)
 df_summary_Low
 
 ################
 # Intermediate #
 ################
-df <- dfTraitRLC %>% 
-	filter(TraitValue == "Intermediate") %>% 
-	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>% 
+df <- dfTraitRLC %>%
+	filter(TraitValue == "Intermediate") %>%
+	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>%
 	filter(!is.na(RLC))
 head(df)
 nrow(df)
@@ -179,9 +179,9 @@ df_wide <- df %>%
 head(df_wide)
 nrow(df_wide)
 
-df_wide <- df_wide %>% 
-	#filter(!is.na(RLC_y2025)) %>% 
-	#filter(!is.na(RLC_y2010)) %>% 
+df_wide <- df_wide %>%
+	#filter(!is.na(RLC_y2025)) %>%
+	#filter(!is.na(RLC_y2010)) %>%
 	select(Speciesname,
 				 RLC_y2010,
 				 RLC_y2025)
@@ -269,17 +269,17 @@ df_summary_Intermediate <- tibble(
 	lower_ci = ci_diff[1],
 	upper_ci = ci_diff[2],
 	n = nrow(df_wide)
-) %>% 
-	mutate(Elevation = "Intermediate") %>% 
+) %>%
+	mutate(Elevation = "Intermediate") %>%
 	select(Elevation, n, lower_ci, mean_difference, upper_ci)
 df_summary_Intermediate
 
 ########
 # High #
 ########
-df <- dfTraitRLC %>% 
-	filter(TraitValue == "Upland") %>% 
-	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>% 
+df <- dfTraitRLC %>%
+	filter(TraitValue == "Upland") %>%
+	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>%
 	filter(!is.na(RLC))
 head(df)
 nrow(df)
@@ -294,9 +294,9 @@ df_wide <- df %>%
 head(df_wide)
 nrow(df_wide)
 
-df_wide <- df_wide %>% 
-	#filter(!is.na(RLC_y2025)) %>% 
-	#filter(!is.na(RLC_y2010)) %>% 
+df_wide <- df_wide %>%
+	#filter(!is.na(RLC_y2025)) %>%
+	#filter(!is.na(RLC_y2010)) %>%
 	select(Speciesname,
 				 RLC_y2010,
 				 RLC_y2025)
@@ -384,8 +384,8 @@ df_summary_High <- tibble(
 	lower_ci = ci_diff[1],
 	upper_ci = ci_diff[2],
 	n = nrow(df_wide)
-) %>% 
-	mutate(Elevation = "Upland") %>% 
+) %>%
+	mutate(Elevation = "Upland") %>%
 	select(Elevation, n, lower_ci, mean_difference, upper_ci)
 df_summary_High
 
@@ -483,7 +483,7 @@ p <- ggplot(rli_summary_all,
 				panel.background = element_rect(fill = "white",
 																				colour = "grey",
 																				linewidth = 1,
-																				linetype = "solid"), 
+																				linetype = "solid"),
 				panel.grid.major = element_line(linewidth = 0.1,
 																				linetype = 1,
 																				colour = "grey"),
@@ -498,7 +498,8 @@ p <- ggplot(rli_summary_all,
 	ggtitle("Elevation")
 p
 
-ggsave("./Figs/Summary/RLI/RLI_EuropeanButterflies2010_2025_Elevation.jpg",
+dir.create("output/figures/rli", recursive = TRUE, showWarnings = FALSE)
+ggsave("./output/figures/rli/RLI_EuropeanButterflies2010_2025_Elevation.jpg",
 			 width = 6,
 			 height = 4,
 			 dpi = 150)
@@ -539,7 +540,7 @@ p <- ggplot(
 ) +
 	geom_errorbar(linewidth = 1.5,
 								colour = "darkgrey") +
-	
+
 	# Add a vertical dashed line at 0 for reference
 	geom_hline(yintercept = 0,
 						 linetype = "dashed",
@@ -580,7 +581,7 @@ p <- ggplot(
 				panel.background = element_rect(fill = "white",
 																				colour = "grey",
 																				linewidth = 1,
-																				linetype = "solid"), 
+																				linetype = "solid"),
 				panel.grid.major = element_line(linewidth = 0.1,
 																				linetype = 1,
 																				colour = "grey"),
@@ -589,14 +590,15 @@ p <- ggplot(
 																					linetype = 1),
 				axis.title.y = element_text(angle = 90,
 																		vjust = 0.5)) +
-	scale_x_discrete(labels = function(x) str_wrap(x, width = 20)) + 
-	scale_y_continuous(limits = c(-0.3, 0.05), 
+	scale_x_discrete(labels = function(x) str_wrap(x, width = 20)) +
+	scale_y_continuous(limits = c(-0.3, 0.05),
 										 breaks = seq(-0.3, 0.05, by = 0.05),
 										 labels = label_number(accuracy = 0.01)) +
 	labs(color = "Trend")
 p
 
-ggsave("./Figs/Summary/diffRLI/diffRLI_EuropeanButterflies2010_2025_elevation.jpg",
+dir.create("output/figures/diff_rli", recursive = TRUE, showWarnings = FALSE)
+ggsave("./output/figures/diff_rli/diffRLI_EuropeanButterflies2010_2025_elevation.jpg",
 			 width = 12,
 			 height = 5,
 			 dpi = 150)

@@ -9,19 +9,19 @@ conflicted::conflicts_prefer(dplyr::filter)
 # Read data #
 #############
 dfTraits <- read_delim("./data/tblTraitBiotopePreference.csv",
-											 delim = ";") %>% 
-	filter(Trait == "BiotopePreference") %>% 
-	filter(nYears >= 2) %>% 
+											 delim = ";") %>%
+	filter(Trait == "BiotopePreference") %>%
+	filter(nYears >= 2) %>%
 	select(SpeciesnameFull,
 				 Trait,
-				 TraitValue) %>% 
+				 TraitValue) %>%
 	rename(Speciesname = SpeciesnameFull)
 head(dfTraits)
 nrow(dfTraits)
 
 dfRLC <- read_delim("./data/tblRLCEurope20102025_short.csv",
-										delim = ";") %>% 
-	filter(Year != "y1999") %>% 
+										delim = ";") %>%
+	filter(Year != "y1999") %>%
 	filter(!is.na(RLC))
 head(dfRLC)
 nrow(dfRLC)
@@ -38,9 +38,9 @@ unique(dfTraitRLC$Speciesname)
 ##########
 # Forest #
 ##########
-df <- dfTraitRLC %>% 
-	filter(TraitValue == "Forest") %>% 
-	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>% 
+df <- dfTraitRLC %>%
+	filter(TraitValue == "Forest") %>%
+	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>%
 	filter(!is.na(RLC))
 head(df)
 nrow(df)
@@ -55,9 +55,9 @@ df_wide <- df %>%
 head(df_wide)
 nrow(df_wide)
 
-df_wide <- df_wide %>% 
-	#filter(!is.na(RLC_y2025)) %>% 
-	#filter(!is.na(RLC_y2010)) %>% 
+df_wide <- df_wide %>%
+	#filter(!is.na(RLC_y2025)) %>%
+	#filter(!is.na(RLC_y2010)) %>%
 	select(Speciesname,
 				 RLC_y2010,
 				 RLC_y2025)
@@ -146,17 +146,17 @@ df_summary_Forest <- tibble(
 	lower_ci = ci_diff[1],
 	upper_ci = ci_diff[2],
 	n = nrow(df_wide)
-) %>% 
-	mutate(BiotopePreference = "Forest") %>% 
+) %>%
+	mutate(BiotopePreference = "Forest") %>%
 	select(BiotopePreference, n, lower_ci, mean_difference, upper_ci)
 df_summary_Forest
 
 #########
 # Urban #
 #########
-df <- dfTraitRLC %>% 
-	filter(TraitValue == "Urban") %>% 
-	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>% 
+df <- dfTraitRLC %>%
+	filter(TraitValue == "Urban") %>%
+	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>%
 	filter(!is.na(RLC))
 head(df)
 nrow(df)
@@ -171,9 +171,9 @@ df_wide <- df %>%
 head(df_wide)
 nrow(df_wide)
 
-df_wide <- df_wide %>% 
-	#filter(!is.na(RLC_y2025)) %>% 
-	#filter(!is.na(RLC_y2010)) %>% 
+df_wide <- df_wide %>%
+	#filter(!is.na(RLC_y2025)) %>%
+	#filter(!is.na(RLC_y2010)) %>%
 	select(Speciesname,
 				 RLC_y2010,
 				 RLC_y2025)
@@ -262,17 +262,17 @@ df_summary_Urban <- tibble(
 	lower_ci = ci_diff[1],
 	upper_ci = ci_diff[2],
 	n = nrow(df_wide)
-) %>% 
-	mutate(BiotopePreference = "Urban") %>% 
+) %>%
+	mutate(BiotopePreference = "Urban") %>%
 	select(BiotopePreference, n, lower_ci, mean_difference, upper_ci)
 df_summary_Urban
 
 #############
 # Grassland #
 #############
-df <- dfTraitRLC %>% 
-	filter(TraitValue == "Grassland") %>% 
-	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>% 
+df <- dfTraitRLC %>%
+	filter(TraitValue == "Grassland") %>%
+	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>%
 	filter(!is.na(RLC))
 head(df)
 nrow(df)
@@ -287,9 +287,9 @@ df_wide <- df %>%
 head(df_wide)
 nrow(df_wide)
 
-df_wide <- df_wide %>% 
-	#filter(!is.na(RLC_y2025)) %>% 
-	#filter(!is.na(RLC_y2010)) %>% 
+df_wide <- df_wide %>%
+	#filter(!is.na(RLC_y2025)) %>%
+	#filter(!is.na(RLC_y2010)) %>%
 	select(Speciesname,
 				 RLC_y2010,
 				 RLC_y2025)
@@ -378,17 +378,17 @@ df_summary_Grassland <- tibble(
 	lower_ci = ci_diff[1],
 	upper_ci = ci_diff[2],
 	n = nrow(df_wide)
-) %>% 
-	mutate(BiotopePreference = "Grassland") %>% 
+) %>%
+	mutate(BiotopePreference = "Grassland") %>%
 	select(BiotopePreference, n, lower_ci, mean_difference, upper_ci)
 df_summary_Grassland
 
 ###########
 # Wetland #
 ###########
-df <- dfTraitRLC %>% 
-	filter(TraitValue == "Wetland") %>% 
-	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>% 
+df <- dfTraitRLC %>%
+	filter(TraitValue == "Wetland") %>%
+	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>%
 	filter(!is.na(RLC))
 head(df)
 nrow(df)
@@ -403,9 +403,9 @@ df_wide <- df %>%
 head(df_wide)
 nrow(df_wide)
 
-df_wide <- df_wide %>% 
-	#filter(!is.na(RLC_y2025)) %>% 
-	#filter(!is.na(RLC_y2010)) %>% 
+df_wide <- df_wide %>%
+	#filter(!is.na(RLC_y2025)) %>%
+	#filter(!is.na(RLC_y2010)) %>%
 	select(Speciesname,
 				 RLC_y2010,
 				 RLC_y2025)
@@ -494,17 +494,17 @@ df_summary_Wetland <- tibble(
 	lower_ci = ci_diff[1],
 	upper_ci = ci_diff[2],
 	n = nrow(df_wide)
-) %>% 
-	mutate(BiotopePreference = "Wetland") %>% 
+) %>%
+	mutate(BiotopePreference = "Wetland") %>%
 	select(BiotopePreference, n, lower_ci, mean_difference, upper_ci)
 df_summary_Wetland
 
 ###############
 # Unvegetated #
 ###############
-df <- dfTraitRLC %>% 
-	filter(TraitValue == "Unvegetated") %>% 
-	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>% 
+df <- dfTraitRLC %>%
+	filter(TraitValue == "Unvegetated") %>%
+	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>%
 	filter(!is.na(RLC))
 head(df)
 nrow(df)
@@ -519,9 +519,9 @@ df_wide <- df %>%
 head(df_wide)
 nrow(df_wide)
 
-df_wide <- df_wide %>% 
-	#filter(!is.na(RLC_y2025)) %>% 
-	#filter(!is.na(RLC_y2010)) %>% 
+df_wide <- df_wide %>%
+	#filter(!is.na(RLC_y2025)) %>%
+	#filter(!is.na(RLC_y2010)) %>%
 	select(Speciesname,
 				 RLC_y2010,
 				 RLC_y2025)
@@ -610,17 +610,17 @@ df_summary_Unvegetated <- tibble(
 	lower_ci = ci_diff[1],
 	upper_ci = ci_diff[2],
 	n = nrow(df_wide)
-) %>% 
-	mutate(BiotopePreference = "Unvegetated") %>% 
+) %>%
+	mutate(BiotopePreference = "Unvegetated") %>%
 	select(BiotopePreference, n, lower_ci, mean_difference, upper_ci)
 df_summary_Unvegetated
 
 ###################
 # Heath and scrub #
 ###################
-df <- dfTraitRLC %>% 
-	filter(TraitValue == "Heath and scrub") %>% 
-	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>% 
+df <- dfTraitRLC %>%
+	filter(TraitValue == "Heath and scrub") %>%
+	filter(TraitValue != "Range extends outside Palearctic and Holarctic") %>%
 	filter(!is.na(RLC))
 head(df)
 nrow(df)
@@ -635,9 +635,9 @@ df_wide <- df %>%
 head(df_wide)
 nrow(df_wide)
 
-df_wide <- df_wide %>% 
-	#filter(!is.na(RLC_y2025)) %>% 
-	#filter(!is.na(RLC_y2010)) %>% 
+df_wide <- df_wide %>%
+	#filter(!is.na(RLC_y2025)) %>%
+	#filter(!is.na(RLC_y2010)) %>%
 	select(Speciesname,
 				 RLC_y2010,
 				 RLC_y2025)
@@ -726,8 +726,8 @@ df_summary_HeathScrub <- tibble(
 	lower_ci = ci_diff[1],
 	upper_ci = ci_diff[2],
 	n = nrow(df_wide)
-) %>% 
-	mutate(BiotopePreference = "Heath and scrub") %>% 
+) %>%
+	mutate(BiotopePreference = "Heath and scrub") %>%
 	select(BiotopePreference, n, lower_ci, mean_difference, upper_ci)
 df_summary_HeathScrub
 
@@ -818,7 +818,7 @@ p <- ggplot(rli_summary_all,
 				panel.background = element_rect(fill = "white",
 																				colour = "grey",
 																				linewidth = 1,
-																				linetype = "solid"), 
+																				linetype = "solid"),
 				panel.grid.major = element_line(linewidth = 0.1,
 																				linetype = 1,
 																				colour = "grey"),
@@ -833,7 +833,8 @@ p <- ggplot(rli_summary_all,
 	ggtitle("Biotope preference")
 p
 
-ggsave("./Figs/Summary/RLI/RLI_EuropeanButterflies2010_2025_Biotope.jpg",
+dir.create("output/figures/rli", recursive = TRUE, showWarnings = FALSE)
+ggsave("./output/figures/rli/RLI_EuropeanButterflies2010_2025_Biotope.jpg",
 			 width = 6,
 			 height = 4,
 			 dpi = 150)
@@ -868,7 +869,7 @@ p <- ggplot(
 ) +
 	geom_errorbar(linewidth = 1.5,
 								colour = "darkgrey") +
-	
+
 	# Add a vertical dashed line at 0 for reference
 	geom_hline(yintercept = 0,
 						 linetype = "dashed",
@@ -909,7 +910,7 @@ p <- ggplot(
 				panel.background = element_rect(fill = "white",
 																				colour = "grey",
 																				linewidth = 1,
-																				linetype = "solid"), 
+																				linetype = "solid"),
 				panel.grid.major = element_line(linewidth = 0.1,
 																				linetype = 1,
 																				colour = "grey"),
@@ -918,15 +919,15 @@ p <- ggplot(
 																					linetype = 1),
 				axis.title.y = element_text(angle = 90,
 																		vjust = 0.5)) +
-	scale_x_discrete(labels = function(x) str_wrap(x, width = 20)) + 
-	scale_y_continuous(limits = c(-0.3, 0.05), 
+	scale_x_discrete(labels = function(x) str_wrap(x, width = 20)) +
+	scale_y_continuous(limits = c(-0.3, 0.05),
 										 breaks = seq(-0.3, 0.05, by = 0.05),
 										 labels = label_number(accuracy = 0.01)) +
 	labs(color = "Trend")
 p
 
-ggsave("./Figs/Summary/diffRLI/diffRLI_EuropeanButterflies2010_2025_Biotope.jpg",
+dir.create("output/figures/diff_rli", recursive = TRUE, showWarnings = FALSE)
+ggsave("./output/figures/diff_rli/diffRLI_EuropeanButterflies2010_2025_Biotope.jpg",
 			 width = 12,
 			 height = 5,
 			 dpi = 150)
-

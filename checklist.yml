@@ -17,5 +17,6 @@ spelling:
   ignore:
   - .github
   - LICENSE.md
-pak: []
+pak:
+- b-cubed-eu/dubicube
 gha_install: []
