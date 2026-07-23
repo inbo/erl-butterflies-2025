@@ -28,6 +28,7 @@
 *_libs
 docs
 libs
+data
 output
 renv/library
 !source/**/_extensions/**
