@@ -107,52 +107,8 @@ list(
       command = c(LC = 0, NT = 1, VU = 2, EN = 3, CR = 4, EX = 5, RE = 5)
     ),
 
-    # Calculate red list indices
-    tar_target(
-      name = rli_change_20102025,
-      command = calculate_rli_change(
-        analysis_data_wide,
-        rli_scores = red_list_scores,
-        max_score = 5
-      ),
-      pattern = map(analysis_data_wide)
-    ),
-    tar_target(
-      name = rli_change_df,
-      command = analysis_data_wide %>%
-        distinct(Trait, TraitValue) %>%
-        mutate(rli = rli_change_20102025),
-      pattern = map(analysis_data_wide, rli_change_20102025)
-    ),
-    tar_target(
-      name = rli_df,
-      command = analysis_data_wide %>%
-        distinct(Trait, TraitValue) %>%
-        mutate(
-          rli_2010 = calculate_rli(
-            analysis_data_wide,
-            rli_scores = red_list_scores,
-            col = "RLC_y2010",
-            max_score = 5
-          ),
-          rli_2025 = calculate_rli(
-            analysis_data_wide,
-            rli_scores = red_list_scores,
-            col = "RLC_y2025",
-            max_score = 5
-          )
-        ) %>%
-        pivot_longer(
-          cols = starts_with("rli_"),
-          names_to = "year",
-          names_prefix = "rli_",
-          values_to = "rli"
-        ),
-      pattern = map(analysis_data_wide, rli_change_20102025)
-    ),
-
-    # Calculate bootstrap intervals
-    ## Bootstrapping
+    # Calculate bootstrap confidence intervals
+    ## Bootstrapping RLI 2010
     tar_target(
       name = rli_2010_boot,
       command = bootstrap_rli(
@@ -168,6 +124,15 @@ list(
       iteration = "list"
     ),
     tar_target(
+      name = rli_2010_boot_df,
+      command = boot_to_dataframe(
+        rli_2010_boot
+      ),
+      pattern = map(rli_2010_boot)
+    ),
+
+    ## Bootstrapping RLI 2025
+    tar_target(
       name = rli_2025_boot,
       command = bootstrap_rli(
         x = analysis_data_wide,
@@ -182,6 +147,15 @@ list(
       iteration = "list"
     ),
     tar_target(
+      name = rli_2025_boot_df,
+      command = boot_to_dataframe(
+        rli_2025_boot
+      ),
+      pattern = map(rli_2025_boot)
+    ),
+
+    ## Bootstrapping change in RLI
+    tar_target(
       name = rli_change_boot,
       command = bootstrap_rli(
         x = analysis_data_wide,
@@ -194,8 +168,15 @@ list(
       pattern = map(analysis_data_wide),
       iteration = "list"
     ),
+    tar_target(
+      name = rli_change_boot_df,
+      command = boot_to_dataframe(
+        rli_change_boot
+      ),
+      pattern = map(rli_change_boot)
+    ),
 
-    ## Confidence interval calculation
+    ## Confidence interval calculation RLI 2010
     tar_target(
       name = rli_2010_boot_ci,
       command = boot::boot.ci(
@@ -207,6 +188,17 @@ list(
       iteration = "list"
     ),
     tar_target(
+      name = rli_2010_df,
+      command = bootci_to_dataframe(
+        boot_obj = rli_2010_boot,
+        bootci_obj = rli_2010_boot_ci
+      ) %>%
+        mutate(Year = 2010),
+      pattern = map(rli_2010_boot, rli_2010_boot_ci)
+    ),
+
+    ## Confidence interval calculation RLI 2025
+    tar_target(
       name = rli_2025_boot_ci,
       command = boot::boot.ci(
         boot.out = rli_2025_boot,
@@ -217,6 +209,17 @@ list(
       iteration = "list"
     ),
     tar_target(
+      name = rli_2025_df,
+      command = bootci_to_dataframe(
+        boot_obj = rli_2025_boot,
+        bootci_obj = rli_2025_boot_ci
+      ) %>%
+        mutate(Year = 2025),
+      pattern = map(rli_2025_boot, rli_2025_boot_ci)
+    ),
+
+    ## Confidence interval calculation change in RLI
+    tar_target(
       name = rli_change_boot_ci,
       command = boot::boot.ci(
         boot.out = rli_change_boot,
@@ -225,6 +228,26 @@ list(
       ),
       pattern = map(rli_change_boot),
       iteration = "list"
+    ),
+    tar_target(
+      name = rli_change_df,
+      command = bootci_to_dataframe(
+        boot_obj = rli_change_boot,
+        bootci_obj = rli_change_boot_ci
+      ),
+      pattern = map(rli_change_boot, rli_change_boot_ci)
+    ),
+
+    # Effect classification
+    tar_target(
+      name = rli_change_effects,
+      command = add_effect_classification(
+        rli_change_df,
+        cl_columns = c("ll", "ul"),
+        threshold = 0.02,
+        reference = 0,
+        coarse = FALSE
+      )
     )
   )
 )
