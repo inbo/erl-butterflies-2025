@@ -38,7 +38,10 @@ This repository contains the reproducible analyses that investigates changes in 
 
 Follow the steps below to run the scripts in a logical order.
 
-> coming soon
+```r
+tar_make(script = "./source/targets/_targets.R", store = "./source/targets")
+tar_load_everything(store = "./source/targets")
+```
 
 ### Repo structure
 
