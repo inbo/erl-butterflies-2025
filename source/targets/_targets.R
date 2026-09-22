@@ -43,7 +43,17 @@ list(
     name = traits_data_filtered,
     command = traits_data %>%
       dplyr::filter(nYears >= 2) %>%
-      select("Speciesname", "Trait", "TraitValue")
+      select("Speciesname", "Trait", "TraitValue") %>%
+      mutate(
+        TraitValue = case_when(
+          TraitValue == "VeryLow" ~ "Lowland",
+          TraitValue == "Low" ~ "Lowland",
+          TraitValue == "Intermediate" ~ "Intermediate",
+          TraitValue == "High" ~ "Upland",
+          TraitValue == "VeryHigh" ~ "Upland",
+          TRUE ~ TraitValue
+      )
+    )
   ),
   ## Prepare red list data
   tar_target(
@@ -57,7 +67,8 @@ list(
   tar_map(
     values = list(
       trait_map = c(
-        "BiotopePreference"
+        "BiotopePreference",
+        "Elevation"
       )
     ),
 
