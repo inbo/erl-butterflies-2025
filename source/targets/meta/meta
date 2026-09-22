@@ -1,0 +1,5 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+traits_file|stem|6f29adaee514086d|a10c4cf80510ada5|2c530c1562a7fbd1|642813600|./data/tblTrait.csv|t20718.3812841659s|s245983b|245983|file|local|vector|||0||
+red_list_file|stem|c3650fd92cb59fbb|297712e62feebc25|2c530c1562a7fbd1|747200975|./data/tblRLCEurope20102025.csv|t20718.3825354022s|s72705b|72705|file|local|vector|||0||
+traits_data|stem|3a3b7233637e840b|a2df6c65d42282a1|15a01c1be5f14f2d|-1136958989||t20718.3884543616s|s17970b|17970|qs|local|vector|||0.078||
+red_list_data|stem|7bbcfdcf9d8d791a|4c5b26299f0945e4|e90d24213bd7abf4|-612945673||t20718.3884545701s|s11432b|11432|qs|local|vector|||0||

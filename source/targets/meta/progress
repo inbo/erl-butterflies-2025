@@ -1,0 +1,9 @@
+name|type|parent|branches|progress
+traits_file|stem|traits_file|0|dispatched
+traits_file|stem|traits_file|0|completed
+red_list_file|stem|red_list_file|0|dispatched
+red_list_file|stem|red_list_file|0|completed
+traits_data|stem|traits_data|0|dispatched
+traits_data|stem|traits_data|0|completed
+red_list_data|stem|red_list_data|0|dispatched
+red_list_data|stem|red_list_data|0|completed
