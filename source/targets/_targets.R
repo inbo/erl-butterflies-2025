@@ -11,7 +11,7 @@ tar_option_set(
 )
 
 # Run the R scripts in the R/ folder with your custom functions:
-tar_source()
+tar_source("./source/R")
 
 # Replace the target list below with your own:
 list(
@@ -98,6 +98,54 @@ list(
         ) %>%
         select("Speciesname", "Trait", "TraitValue", "RLC_y2010", "RLC_y2025"),
       pattern = map(single_trait_data_joined)
+    ),
+    tar_target(
+      name = red_list_scores,
+      command = c(LC = 0, NT = 1, VU = 2, EN = 3, CR = 4, EX = 5, RE = 5)
+    ),
+
+    # Calculate red list indices
+    tar_target(
+      name = rli_change_20102025,
+      command = calculate_rli_change(
+        analysis_data_wide,
+        rli_scores = red_list_scores,
+        max_score = 5
+      ),
+      pattern = map(analysis_data_wide)
+    ),
+    tar_target(
+      name = rli_change_df,
+      command = analysis_data_wide %>%
+        distinct(Trait, TraitValue) %>%
+        mutate(rli = rli_change_20102025),
+      pattern = map(analysis_data_wide, rli_change_20102025)
+    ),
+    tar_target(
+      name = rli_df,
+      command = analysis_data_wide %>%
+        distinct(Trait, TraitValue) %>%
+        mutate(
+          rli_2010 = calculate_rli(
+            analysis_data_wide,
+            rli_scores = red_list_scores,
+            col = "RLC_y2010",
+            max_score = 5
+          ),
+          rli_2025 = calculate_rli(
+            analysis_data_wide,
+            rli_scores = red_list_scores,
+            col = "RLC_y2025",
+            max_score = 5
+          )
+        ) %>%
+        pivot_longer(
+          cols = starts_with("rli_"),
+          names_to = "year",
+          names_prefix = "rli_",
+          values_to = "rli"
+        ),
+      pattern = map(analysis_data_wide, rli_change_20102025)
     )
   )
 )
