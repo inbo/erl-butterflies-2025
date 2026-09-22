@@ -7,7 +7,7 @@ library(readr)
 
 # Set target options:
 tar_option_set(
-  packages = c("boot")
+  packages = c("boot", "ggplot2", "dplyr", "tidyr")
 )
 
 # Run the R scripts in the R/ folder with your custom functions:
@@ -236,6 +236,19 @@ list(
         bootci_obj = rli_change_boot_ci
       ),
       pattern = map(rli_change_boot, rli_change_boot_ci)
+    ),
+
+    # Visualise bootstrap results
+    tar_target(
+      name = plot_rli_change_boot,
+      command = plot_bootstrap_results(
+        bootstrap_replicates = rli_change_boot_df,
+        bootstrap_intervals = rli_change_df,
+        path = "./output/figures/bootstrap_results",
+        ggsave_args = list(
+          dpi = 300
+        )
+      )
     ),
 
     # Effect classification
