@@ -7,7 +7,7 @@ library(readr)
 
 # Set target options:
 tar_option_set(
-  packages = c("dplyr")
+  packages = c("boot")
 )
 
 # Run the R scripts in the R/ folder with your custom functions:
@@ -61,7 +61,7 @@ list(
       )
     ),
 
-    # Prepare branching over each trait dataset
+    # Prepare grouping over each trait dataset
     tar_target(
       name = single_trait_data,
       command = traits_data_filtered %>%
@@ -74,6 +74,7 @@ list(
     ),
 
     # Prepare analysis datasets
+    ## Join trait and red list datasets
     tar_target(
       name = single_trait_data_joined,
       command = left_join(
@@ -83,6 +84,7 @@ list(
       ),
       pattern = map(single_trait_data_grouped)
     ),
+    ## Filter and pivot data
     tar_target(
       name = analysis_data_wide,
       command = single_trait_data_joined %>%
@@ -99,6 +101,7 @@ list(
         select("Speciesname", "Trait", "TraitValue", "RLC_y2010", "RLC_y2025"),
       pattern = map(single_trait_data_joined)
     ),
+    ## Define red list scores
     tar_target(
       name = red_list_scores,
       command = c(LC = 0, NT = 1, VU = 2, EN = 3, CR = 4, EX = 5, RE = 5)
@@ -146,6 +149,82 @@ list(
           values_to = "rli"
         ),
       pattern = map(analysis_data_wide, rli_change_20102025)
+    ),
+
+    # Calculate bootstrap intervals
+    ## Bootstrapping
+    tar_target(
+      name = rli_2010_boot,
+      command = bootstrap_rli(
+        x = analysis_data_wide,
+        f = calculate_rli,
+        rli_scores = red_list_scores,
+        col = "RLC_y2010",
+        max_score = 5,
+        bootstrap_samples = 1000,
+        seed = 123
+      ),
+      pattern = map(analysis_data_wide),
+      iteration = "list"
+    ),
+    tar_target(
+      name = rli_2025_boot,
+      command = bootstrap_rli(
+        x = analysis_data_wide,
+        f = calculate_rli,
+        rli_scores = red_list_scores,
+        col = "RLC_y2025",
+        max_score = 5,
+        bootstrap_samples = 1000,
+        seed = 123
+      ),
+      pattern = map(analysis_data_wide),
+      iteration = "list"
+    ),
+    tar_target(
+      name = rli_change_boot,
+      command = bootstrap_rli(
+        x = analysis_data_wide,
+        f = calculate_rli_change,
+        rli_scores = red_list_scores,
+        max_score = 5,
+        bootstrap_samples = 1000,
+        seed = 123
+      ),
+      pattern = map(analysis_data_wide),
+      iteration = "list"
+    ),
+
+    ## Confidence interval calculation
+    tar_target(
+      name = rli_2010_boot_ci,
+      command = boot::boot.ci(
+        boot.out = rli_2010_boot,
+        conf = 0.95,
+        type = c("norm", "perc", "bca")
+      ),
+      pattern = map(rli_2010_boot),
+      iteration = "list"
+    ),
+    tar_target(
+      name = rli_2025_boot_ci,
+      command = boot::boot.ci(
+        boot.out = rli_2025_boot,
+        conf = 0.95,
+        type = c("norm", "perc", "bca")
+      ),
+      pattern = map(rli_2025_boot),
+      iteration = "list"
+    ),
+    tar_target(
+      name = rli_change_boot_ci,
+      command = boot::boot.ci(
+        boot.out = rli_change_boot,
+        conf = 0.95,
+        type = c("norm", "perc", "bca")
+      ),
+      pattern = map(rli_change_boot),
+      iteration = "list"
     )
   )
 )
