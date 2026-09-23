@@ -237,6 +237,16 @@ list(
       pattern = map(rli_2025_boot, rli_2025_boot_ci)
     ),
 
+    ## Combine RLI results
+    tar_target(
+      name = rli_df,
+      command = bind_rows(
+        rli_2010_df,
+        rli_2025_df
+      ),
+      pattern = map(rli_2010_df, rli_2025_df)
+    ),
+
     ## Confidence interval calculation change in RLI
     tar_target(
       name = rli_change_boot_ci,
