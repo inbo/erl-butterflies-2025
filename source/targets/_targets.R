@@ -305,6 +305,14 @@ list(
         coarse = FALSE
       )
     ),
+    tar_target(
+      name = rli_change_effects_path,
+      command = write_effects_table(
+        rli_change_effects,
+        path = "./output/tables",
+        digits = 6
+      )
+    ),
 
     # Visualisation
     ## RLI by year
