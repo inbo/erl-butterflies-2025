@@ -31,22 +31,80 @@
 
 ### Description
 <!-- description: start -->
-This repository contains the reproducible analyses that investigates changes in the conservation status of European butterflies by comparing the 2010 and 2025 European Red Lists. It quantifies changes in extinction risk using the Red List Index (RLI) and examines how ecological, biogeographical, and life-history traits are associated with changes in species' threat status. The analyses combine Red List assessments with species trait data to identify the groups of butterflies that are most vulnerable and to provide evidence for conservation policy and biodiversity monitoring across Europe.
+This repository contains reproducible analyses investigating changes in the conservation status of European butterflies by comparing the 2010 and 2025 European Red Lists.
+It quantifies changes in extinction risk using the Red List Index (RLI) and examines how ecological, biogeographical, and life-history traits are associated with changes in species' threat status.
+The analyses combine Red List assessments with species trait data to identify the groups of butterflies that are most vulnerable and to provide evidence for conservation policy and biodiversity monitoring across Europe.
 <!-- description: end -->
 
 ### Execution steps
 
-Follow the steps below to run the analysis:
+The analyses were developed and tested with **R 4.6.1**. Using the same R version is recommended to ensure reproducibility.
 
-- Open `erl-butterflies-2025.Rproj` in RStudio
-- Run the `{targets}` pipeline (more info [here](https://books.ropensci.org/targets/)):
+#### 1. Install the required packages
+
+Install the required packages from CRAN:
 
 ```r
-library(targets) # install.packages("targets")
-tar_make(script = "./source/targets/_targets.R", store = "./source/targets")
+install.packages(c(
+  "tidyverse",  # Data import, wrangling, and visualisation
+  "zen4R",      # Download input data from Zenodo
+  "targets",    # Manage and run the analysis pipeline
+  "tarchetypes",# Additional target patterns used in the pipeline
+  "boot"        # Bootstrap estimates and confidence intervals
+))
 ```
 
-- The data is automatically downloaded from Zenodo (*link*) and the results are saved in the `output` folder
+The `effectclass` package is installed from GitHub:
+
+```r
+install.packages("remotes")
+remotes::install_github("inbo/effectclass") # Classify RLI changes based on their confidence intervals
+```
+
+#### 2. Open the project
+
+Open `erl-butterflies-2025.Rproj` in RStudio.
+The project should be run from its root directory so that all relative paths are resolved correctly.
+
+#### 3. Run the analysis
+
+The analyses are implemented as a [`targets`](https://books.ropensci.org/targets/) pipeline.
+Run the complete pipeline with:
+
+```r
+targets::tar_make(
+  script = "./source/targets/_targets.R",
+  store = "./source/targets"
+)
+```
+
+The pipeline automatically downloads the required input data from Zenodo (*link*).
+Generated figures and tables are written to the `output` directory.
+
+The `{targets}` pipeline keeps intermediate results in `source/targets/objects`.
+Individual results can be retrieved without rerunning the complete analysis, for example:
+
+```r
+targets::tar_read(
+  rli_change_boot_Elevation,
+  store = "./source/targets"
+)
+```
+
+To rerun the pipeline after changing the code, simply run `tar_make()` again.
+`{targets}` will determine which targets need to be recomputed based on their dependencies.
+
+#### 4. Output
+
+After a successful pipeline run, the main results are available in:
+
+```text
+output/
+├── figures/
+└── tables/
+```
+
+The `source/targets/objects` directory contains cached intermediate results managed by `{targets}` and is used to avoid unnecessarily repeating computationally intensive steps.
 
 ### Repo structure
 
