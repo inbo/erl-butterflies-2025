@@ -55,6 +55,19 @@ list(
       ) %>%
       distinct(Speciesname, Trait, TraitValue)
   ),
+  ## Add overall trait
+  tar_target(
+    name = traits_data_full,
+    command = traits_data_filtered %>%
+      bind_rows(
+        traits_data_filtered %>%
+          mutate(
+            Trait = "Overall",
+            TraitValue = "All"
+          ) %>%
+          distinct()
+      )
+  ),
   ## Prepare red list data
   tar_target(
     name = red_list_data_filtered,
@@ -76,14 +89,15 @@ list(
         "Specialisation",
         "SpeciesTemperatureIndex",
         "Voltinism",
-        "Wingspan"
+        "Wingspan",
+        "Overall"
       )
     ),
 
     # Prepare grouping over each trait dataset
     tar_target(
       name = single_trait_data,
-      command = traits_data_filtered %>%
+      command = traits_data_full %>%
         dplyr::filter(Trait == trait_map) %>%
         dplyr::filter(
           TraitValue != "Range extends outside the Palaearctic and Holarctic"
