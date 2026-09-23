@@ -7,7 +7,7 @@ library(readr)
 
 # Set target options:
 tar_option_set(
-  packages = c("boot", "ggplot2", "dplyr", "tidyr")
+  packages = c("boot", "ggplot2", "dplyr", "tidyr", "effectclass")
 )
 
 # Run the R scripts in the R/ folder with your custom functions:

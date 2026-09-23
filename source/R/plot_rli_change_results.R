@@ -29,7 +29,6 @@ plot_rli_change_results <- function(
   require("ggplot2")
   require("dplyr")
   require("rlang")
-  require("scales")
 
   out <- vector(mode = "list", length = length(interval_type))
 

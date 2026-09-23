@@ -57,32 +57,8 @@ add_effect_classification <- function(
   reference = 0,
   coarse = TRUE
 ) {
-  ### Start checks
-  # Check dataframe input
-  stopifnot("`df` must be a dataframe." =
-              inherits(df, "data.frame"))
-
-  # Check if cl_columns is a character vector
-  stopifnot("`cl_columns` must be a character vector of length 2." =
-              is.character(cl_columns) & length(cl_columns) == 2)
-
-  # Check if cl_columns columns are present in dataframe
-  stopifnot("`cl_columns` columns are not present in `df`." =
-              all(cl_columns %in% names(df)))
-
-  # Check if reference is a numeric vector
-  stopifnot("`threshold` must be a numeric vector of length 1 or 2." =
-              is.numeric(threshold) &
-              (length(threshold) == 1 | length(threshold) == 2))
-
-  # Check if reference is a number
-  stopifnot("`reference` must be a numeric vector of length 1." =
-              assertthat::is.number(reference))
-
-  # Check if coarse is a logical vector of length 1
-  stopifnot("`coarse` must be a logical vector of length 1." =
-              assertthat::is.flag(coarse))
-  ### End checks
+  require("dplyr")
+  require("rlang")
 
   # Classify effects with effectclass
   classified_df <- df %>%
