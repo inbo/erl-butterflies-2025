@@ -136,7 +136,7 @@ list(
         rli_scores = red_list_scores,
         col = "RLC_y2010",
         max_score = 5,
-        bootstrap_samples = 1000,
+        bootstrap_samples = 10000,
         seed = 123
       ),
       pattern = map(analysis_data_wide),
@@ -295,7 +295,7 @@ list(
     # Visualisation
     ## RLI by year
     tar_target(
-      name = plot_rli_year_results_bca,
+      name = vis_rli_year_results,
       command = plot_rli_year_results(
         rli_df,
         effects_df = rli_change_effects,
@@ -304,6 +304,21 @@ list(
         ggsave_args = list(
           dpi = 150,
           width = 6,
+          height = 4,
+          units = "in"
+        )
+      )
+    ),
+    ## RLI change
+    tar_target(
+      name = vis_rli_change_results,
+      command = plot_rli_change_results(
+        effects_df = rli_change_effects,
+        interval_type = c("bca", "percent"),
+        path = "./output/figures/rli_change_results",
+        ggsave_args = list(
+          dpi = 150,
+          width = 8,
           height = 4,
           units = "in"
         )
