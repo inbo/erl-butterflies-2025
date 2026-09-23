@@ -3,7 +3,7 @@
   "access_right": "open",
   "language": "eng",
   "title": "Code and analyses for the 2025 European Red List of butterflies and comparison with the 2010 assessment",
-  "description": "<p>This repository contains the reproducible analyses that investigates changes in the conservation status of European butterflies by comparing the 2010 and 2025 European Red Lists. It quantifies changes in extinction risk using the Red List Index (RLI) and examines how ecological, biogeographical, and life-history traits are associated with changes in species’ threat status. The analyses combine Red List assessments with species trait data to identify the groups of butterflies that are most vulnerable and to provide evidence for conservation policy and biodiversity monitoring across Europe.<\/p>",
+  "description": "<p>This repository contains reproducible analyses investigating changes in the conservation status of European butterflies by comparing the 2010 and 2025 European Red Lists. It quantifies changes in extinction risk using the Red List Index (RLI) and examines how ecological, biogeographical, and life-history traits are associated with changes in species’ threat status. The analyses combine Red List assessments with species trait data to identify the groups of butterflies that are most vulnerable and to provide evidence for conservation policy and biodiversity monitoring across Europe.<\/p>",
   "keywords": [
     "European butterflies",
     "Red List Index",
