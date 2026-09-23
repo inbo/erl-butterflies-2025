@@ -46,11 +46,11 @@ Install the required packages from CRAN:
 
 ```r
 install.packages(c(
-  "tidyverse",  # Data import, wrangling, and visualisation
-  "zen4R",      # Download input data from Zenodo
-  "targets",    # Manage and run the analysis pipeline
-  "tarchetypes",# Additional target patterns used in the pipeline
-  "boot"        # Bootstrap estimates and confidence intervals
+  "tidyverse",     # Data import, wrangling, and visualisation
+  "zen4R",         # Download input data from Zenodo
+  "targets",       # Manage and run the analysis pipeline
+  "tarchetypes",   # Additional target patterns used in the pipeline
+  "boot"           # Bootstrap estimates and confidence intervals
 ))
 ```
 
@@ -127,7 +127,7 @@ The `source/targets/objects` directory contains cached intermediate results mana
 ├── checklist.yml                  ├ options checklist package (https://github.com/inbo/checklist)
 ├── organisation.yml               ├ organisation settings checklist package
 ├── inst
-│   └── en_gb.dic                  ├ dictionary with words that should not be checked by the checklist package
+│   └── en_gb.dic                  ├ dictionary with words that should not be checked by checklist
 └── .github                        │ 
     ├── workflows                  │ 
     │   └── checklist_project.yml  ├ GitHub repo settings
