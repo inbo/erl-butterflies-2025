@@ -34,30 +34,45 @@
 This repository contains the reproducible analyses that investigates changes in the conservation status of European butterflies by comparing the 2010 and 2025 European Red Lists. It quantifies changes in extinction risk using the Red List Index (RLI) and examines how ecological, biogeographical, and life-history traits are associated with changes in species' threat status. The analyses combine Red List assessments with species trait data to identify the groups of butterflies that are most vulnerable and to provide evidence for conservation policy and biodiversity monitoring across Europe.
 <!-- description: end -->
 
-### Order of execution
+### Execution steps
 
-Follow the steps below to run the scripts in a logical order.
+Follow the steps below to run the analysis:
 
-> coming soon
+- Open `erl-butterflies-2025.Rproj` in RStudio
+- Run the `{targets}` pipeline (more info [here](https://books.ropensci.org/targets/)):
+
+```r
+library(targets) # install.packages("targets")
+tar_make(script = "./source/targets/_targets.R", store = "./source/targets")
+```
+
+- The data is automatically downloaded from Zenodo (*link*) and the results are saved in the `output` folder
 
 ### Repo structure
 
 ```bash
-├── source                         ├ ...
-├── data                           ├ ...
-├── output                         ├ ...
-├── checklist.yml                  ├ options checklist package (https://github.com/inbo/checklist)
-├── inst
-│   └── en_gb.dic                  ├ dictionary with words that should not be checked by the checklist package
-├── .github                        │ 
-│   ├── workflows                  │ 
-│   │   └── checklist_project.yml  ├ GitHub repo settings
-│   ├── CODE_OF_CONDUCT.md         │ 
-│   └── CONTRIBUTING.md            │
+├── source
+│   ├── targets                    ├ {targets} pipeline folder
+│   └── R                          ├ helper functions for the pipeline
+├── data                           ├ data folder automatically created during code execution
+├── output                         ├ output folder automatically created during code execution
+│   ├── figures                    │ 
+│   └── tables                     │
+│
 ├── erl-butterflies-2025.Rproj     ├ R project
 ├── README.md                      ├ project description
-├── LICENSE.md                     ├ licence
+├── LICENSE.md                     ├ license
 ├── CITATION.cff                   ├ citation info
 ├── .zenodo.json                   ├ zenodo metadata
-└── .gitignore                     ├ files to ignore
+├── .gitignore                     ├ files to ignore
+│
+├── checklist.yml                  ├ options checklist package (https://github.com/inbo/checklist)
+├── organisation.yml               ├ organisation settings checklist package
+├── inst
+│   └── en_gb.dic                  ├ dictionary with words that should not be checked by the checklist package
+└── .github                        │ 
+    ├── workflows                  │ 
+    │   └── checklist_project.yml  ├ GitHub repo settings
+    ├── CODE_OF_CONDUCT.md         │ 
+    └── CONTRIBUTING.md            │
 ```
