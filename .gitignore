@@ -26,6 +26,7 @@
 *_files
 *_freeze
 *_libs
+*.zip
 docs
 libs
 data
