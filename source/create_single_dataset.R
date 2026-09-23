@@ -6,12 +6,14 @@ files <- list.files(
   full.names = TRUE
 )
 
-tblTrait <- files %>%
-  map_dfr(\(file) read_delim(
-    file,
-    delim = ";",
-    show_col_types = FALSE
-  )) %>%
+tbl_trait <- files %>%
+  map_dfr(\(file) {
+    read_delim(
+      file,
+      delim = ";",
+      show_col_types = FALSE
+    )
+  }) %>%
   mutate(
     TraitValue = if_else(
       Trait == "RangeSize",
@@ -26,4 +28,4 @@ tblTrait <- files %>%
     nYears
   )
 
-write_csv(tblTrait, "./data/tblTrait.csv")
+write_csv(tbl_trait, "./data/tblTrait.csv")
