@@ -750,32 +750,15 @@ rli_change_df_RangeSize_44d80243dc8d0868|branch|e6b8a547fedc41d1|c26d2eaadc17ed8
 rli_change_df_RangeSize_c6a7848cbd07c598|branch|8c145c3f1d01ab3a|c26d2eaadc17ed86|87c32a7c276e7060|-173160697||t20719.4058057934s|s365b|365|rds|local|vector|rli_change_df_RangeSize||0||
 rli_change_df_RangeSize_73fb6b4e044ab4d4|branch|a40c667cc2873560|c26d2eaadc17ed86|85d543d186361599|-107326616||t20719.4058058629s|s363b|363|rds|local|vector|rli_change_df_RangeSize||0||
 rli_change_effects_Wingspan|stem|9ea75e9da9ce09e0|8421d63c68215d4a|e797fa621b6fc5bb|-1501108523||t20719.4058069825s|s839b|839|rds|local|vector|||0.094||
-plot_rli_change_boot_Wingspan|stem|2828a93fea8e854e|2ef30146b1f7bd0e|24278429b86b6830|-954683049||t20719.4058167822s|s258283b|258283|rds|local|vector|||0.75|Using shapes for an ordinal variable is not advised|
 rli_change_effects_Specialisation|stem|bc0e842e873f08fe|9a556d22fc337f62|20a7e754e340b443|-2105609867||t20719.4058170243s|s771b|771|rds|local|vector|||0||
-plot_rli_change_boot_Specialisation|stem|1f0c587a36516c3e|0991abd288c769bc|14614f420af9176b|1058787757||t20719.4058229459s|s246095b|246095|rds|local|vector|||0.422|Using shapes for an ordinal variable is not advised|
-plot_rli_change_boot_HostPlantType|stem|18339ca3ec150d4f|018b04ae1ad9b162|daf6ee4db6ed0af8|946579910||t20719.4058289614s|s248358b|248358|rds|local|vector|||0.437|Using shapes for an ordinal variable is not advised|
 rli_change_effects_HostPlantType|stem|6dd0f7a1daa28d23|39533f4c5da6627a|4be47accf91dfcae|-1691956141||t20719.4058292099s|s751b|751|rds|local|vector|||0||
-plot_rli_change_boot_GlobalDistribution|stem|f7a5006fe21bfb3a|1aefa26e5da72fc5|ee552331c3bd8258|1125966477||t20719.4058373474s|s271703b|271703|rds|local|vector|||0.563|Using shapes for an ordinal variable is not advised|
 rli_change_effects_GlobalDistribution|stem|ca9385299481102f|5415a5ae2d6e6e33|b8b27f2fb84d84f9|-455245637||t20719.4058376513s|s979b|979|rds|local|vector|||0||
 rli_change_effects_BiotopePreference|stem|f2a05ebefc95ef93|a492db39c7478558|4bf7d7a4dca8c0f6|-1334922721||t20719.4058378364s|s1038b|1038|rds|local|vector|||0||
-plot_rli_change_boot_BiotopePreference|stem|e7d04ac972561a57|fceef70901968ef8|aac2c567cdb28491|1666907726||t20719.4058468778s|s281743b|281743|rds|local|vector|||0.687|Using shapes for an ordinal variable is not advised|
 rli_change_effects_SpeciesTemperatureIndex|stem|4a881865844d83f7|30a1d8492bec29dd|0074355ba6dc9cbe|732134504||t20719.4058471814s|s859b|859|rds|local|vector|||0||
-plot_rli_change_boot_SpeciesTemperatureIndex|stem|4c9914094b58967e|40b245949b9de1a7|9be218baae2e46fb|-1440144190||t20719.4058540995s|s261976b|261976|rds|local|vector|||0.5|Using shapes for an ordinal variable is not advised|
 rli_change_effects_Voltinism|stem|d7e9658a1c14fe1b|5c19a305680ea551|74473d30560e4fdc|2119286570||t20719.4058543568s|s843b|843|rds|local|vector|||0.016||
-plot_rli_change_boot_Voltinism|stem|ac465f55e86be7b2|b287967ffec9791f|1bc033447a359241|341735481||t20719.405861193s|s260337b|260337|rds|local|vector|||0.5|Using shapes for an ordinal variable is not advised|
 rli_change_effects_Elevation|stem|a9baaf029d0c1781|436c596c87070a0d|198d6e2aee5893b8|-1658132697||t20719.40586145s|s751b|751|rds|local|vector|||0||
-plot_rli_change_boot_Elevation|stem|b0de4824e974eb30|fae1cc3f73c071bf|650aadd1b67c1782|1171510859||t20719.4058673929s|s247172b|247172|rds|local|vector|||0.422|Using shapes for an ordinal variable is not advised|
-plot_rli_change_boot_OverwinteringStage|stem|863fd03677d24aa1|0a5922c995e9ae05|004677c3dc1ea5f3|888320264||t20719.4058749863s|s254583b|254583|rds|local|vector|||0.516|Using shapes for an ordinal variable is not advised|
 rli_change_effects_OverwinteringStage|stem|712629b6e363ead3|ad6b62dd7c958c22|f2dfa7b942f30467|2042821518||t20719.4058752348s|s840b|840|rds|local|vector|||0||
 rli_change_effects_RangeSize|stem|6acb6f55a81cd099|21ca53893f384c7e|d596fdeaddaf9d63|1896742986||t20719.4058754477s|s940b|940|rds|local|vector|||0||
-plot_rli_change_boot_RangeSize|stem|5fb5a882b85922b5|4d0ade8b453d7b14|f308ed0e1cd0f07c|-1805928475||t20719.4058835231s|s263973b|263973|rds|local|vector|||0.609|Using shapes for an ordinal variable is not advised|
-plot_bootstrap_results|function|b95e60fc2b0925e8|||||||||||||||
-boot_to_dataframe|function|59adbd514fc331d3|||||||||||||||
-calculate_rli|function|78d90f48b3f507e4|||||||||||||||
-add_effect_classification|function|1d213b40a80b4194|||||||||||||||
-bootstrap_rli|function|eec01246d308f34d|||||||||||||||
-bootci_to_dataframe|function|945240b241ae9288|||||||||||||||
-calculate_rli_change|function|72b6fc9c93c99d5f|||||||||||||||
 rli_df_Specialisation_0cdb9d734ad20f0b|branch|4251a814864a3385|0cb7489f6ab7b3e9|93e40e867eaae5e4|501289827||t20719.4093543212s|s496b|496|rds|local|vector|rli_df_Specialisation||0||
 rli_df_Specialisation_209039e251e1aed9|branch|d6eb1fc6091685b8|0cb7489f6ab7b3e9|9ee0cf20cb4c582c|1122606050||t20719.4093544897s|s511b|511|rds|local|vector|rli_df_Specialisation||0||
 rli_df_Specialisation_c2bc458911b032eb|branch|a803fa3e532a69e4|0cb7489f6ab7b3e9|298fd534c0cba831|887396432||t20719.4093545707s|s501b|501|rds|local|vector|rli_df_Specialisation||0||
@@ -827,3 +810,32 @@ rli_df_SpeciesTemperatureIndex_0a79a736c02976d0|branch|9a7aff39316b1bea|93975e96
 rli_df_SpeciesTemperatureIndex_5b07b6c58f1bc09b|branch|f730f822e864aecb|93975e9681989903|3a6ef3ae0e46ae3c|1664079450||t20719.4093593162s|s497b|497|rds|local|vector|rli_df_SpeciesTemperatureIndex||0||
 rli_df_SpeciesTemperatureIndex_bdbe0cb12988d95f|branch|2253611669e9b704|93975e9681989903|a2ca788e0b2bf348|325132451||t20719.409359374s|s492b|492|rds|local|vector|rli_df_SpeciesTemperatureIndex||0||
 rli_df_SpeciesTemperatureIndex|pattern|473335fbc9b682c4|93975e9681989903||127037830||||2000|rds|local|vector||rli_df_SpeciesTemperatureIndex_73e76ecc2a61ff1c*rli_df_SpeciesTemperatureIndex_0a79a736c02976d0*rli_df_SpeciesTemperatureIndex_5b07b6c58f1bc09b*rli_df_SpeciesTemperatureIndex_bdbe0cb12988d95f|0||
+plot_rli|function|297fe34d81b660c4
+plot_rli_change_boot_RangeSize|stem|80573788b8f74743|a8b51bbed703efdf|f308ed0e1cd0f07c|-1805928475||t20719.503360748s|s263974b|263974|rds|local|vector|||0.797|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_GlobalDistribution|stem|6b95a083875b4df9|305e18c29949d63a|ee552331c3bd8258|1125966477||t20719.5033678475s|s271704b|271704|rds|local|vector|||0.469|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_Voltinism|stem|5f027afdb81d7ee8|090d6336cd08cec5|1bc033447a359241|341735481||t20719.5033737419s|s260337b|260337|rds|local|vector|||0.391|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_SpeciesTemperatureIndex|stem|54b4ecb4738217ef|10db389c5600c6b9|9be218baae2e46fb|-1440144190||t20719.5033806632s|s261976b|261976|rds|local|vector|||0.468|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_OverwinteringStage|stem|fabda03463fc7f72|a3da4da12031212a|004677c3dc1ea5f3|888320264||t20719.5033866006s|s254583b|254583|rds|local|vector|||0.406|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_Specialisation|stem|7e04c3d665dfa358|511f14e0da54e4ac|14614f420af9176b|1058787757||t20719.503392375s|s246095b|246095|rds|local|vector|||0.391|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_HostPlantType|stem|31863d5ca603db3e|021dbe8fd7739b0d|daf6ee4db6ed0af8|946579910||t20719.5033978532s|s248358b|248358|rds|local|vector|||0.36|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_Elevation|stem|8dc18f4d61cd72bc|48cf5e7a215f55b6|650aadd1b67c1782|1171510859||t20719.503404254s|s247172b|247172|rds|local|vector|||0.453|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_Wingspan|stem|faa862adbd637eb2|4b0743da916e8ad6|24278429b86b6830|-954683049||t20719.5034107341s|s258283b|258283|rds|local|vector|||0.453|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_BiotopePreference|stem|73a8f33ea6a63eff|f1718b0745b7f198|aac2c567cdb28491|1666907726||t20719.503418785s|s281743b|281743|rds|local|vector|||0.547|Using shapes for an ordinal variable is not advised|
+plot_bootstrap_results|function|b95e60fc2b0925e8
+boot_to_dataframe|function|59adbd514fc331d3
+calculate_rli|function|78d90f48b3f507e4
+add_effect_classification|function|1d213b40a80b4194
+bootstrap_rli|function|eec01246d308f34d
+bootci_to_dataframe|function|945240b241ae9288
+plot_rli_year_results|function|7d910375232bb60a
+calculate_rli_change|function|72b6fc9c93c99d5f
+plot_rli_year_results_bca_RangeSize|stem|40871293ca10d258|10e0eb2d6f9ed6c5|4ecfa2e884077b69|366123646||t20719.5040350961s|s281430b|281430|rds|local|vector|||0.734||
+plot_rli_year_results_bca_GlobalDistribution|stem|54b418ea0f1a1406|fb8f5450852c6ede|ee31ea00cc8d8a11|-1169122864||t20719.5040427119s|s282030b|282030|rds|local|vector|||0.484||
+plot_rli_year_results_bca_Voltinism|stem|04fefb30ceb89e79|1aee07c933bb7a65|0421aa26c0d3aa75|-433424806||t20719.5040488447s|s281002b|281002|rds|local|vector|||0.406||
+plot_rli_year_results_bca_SpeciesTemperatureIndex|stem|b016810dcc84d7ad|f9323ac5e3189e1b|51a8c187cd849f3b|1967517509||t20719.5040547736s|s281217b|281217|rds|local|vector|||0.391||
+plot_rli_year_results_bca_OverwinteringStage|stem|6aecd2ded2e397ef|3472c7560dda73bd|306c42879d7e92f6|2021700882||t20719.5040615321s|s280553b|280553|rds|local|vector|||0.422||
+plot_rli_year_results_bca_Specialisation|stem|79c203da712c9aa6|a4914fa2421ec299|7163a91f2e500375|-1529964526||t20719.5040671206s|s280097b|280097|rds|local|vector|||0.375||
+plot_rli_year_results_bca_HostPlantType|stem|c78fcf1d7fc8cdb7|ebf7156356edfaea|34459c984792bd8e|1122085537||t20719.5040731067s|s279851b|279851|rds|local|vector|||0.406||
+plot_rli_year_results_bca_Elevation|stem|49ca72bb54970c8f|a2ff8a11af5ff259|f9dadb585be0563d|1579698848||t20719.5040790674s|s279802b|279802|rds|local|vector|||0.406||
+plot_rli_year_results_bca_Wingspan|stem|441db45ccb688196|7cf3f73bfee96210|65c25a0f15c0512e|-781364830||t20719.5040853915s|s280716b|280716|rds|local|vector|||0.422||
+plot_rli_year_results_bca_BiotopePreference|stem|efc8727e0ae10fe6|f5edde6addfca163|4c63678318a0c745|-761956826||t20719.5040922554s|s282985b|282985|rds|local|vector|||0.484||

@@ -275,7 +275,7 @@ list(
         bootstrap_intervals = rli_change_df,
         path = "./output/figures/bootstrap_results",
         ggsave_args = list(
-          dpi = 300
+          dpi = 150
         )
       )
     ),
@@ -289,6 +289,24 @@ list(
         threshold = 0.02,
         reference = 0,
         coarse = FALSE
+      )
+    ),
+
+    # Visualisation
+    ## RLI by year
+    tar_target(
+      name = plot_rli_year_results_bca,
+      command = plot_rli_year_results(
+        rli_df,
+        effects_df = rli_change_effects,
+        interval_type = c("bca", "percent"),
+        path = "./output/figures/rli_year_results",
+        ggsave_args = list(
+          dpi = 150,
+          width = 6,
+          height = 4,
+          units = "in"
+        )
       )
     )
   )
