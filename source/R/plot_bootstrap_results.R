@@ -31,42 +31,47 @@ plot_bootstrap_results <- function(
 ) {
   require("ggplot2")
   require("dplyr")
+  require("rlang")
   require("tidyr")
 
   # Prepare the original and mean bootstrap estimates for plotting.
   estimates_df <- bootstrap_intervals %>%
     distinct(
-      trait_value,
-      estimate = est_original,
-      `bootstrap estimate` = mean_boot
+      .data$trait_value,
+      .data$n_spec,
+      estimate = .data$est_original,
+      `bootstrap estimate` = .data$mean_boot
     ) %>%
     pivot_longer(
       cols = c("estimate", "bootstrap estimate"),
-      names_to = "Legend",
+      names_to = "legend",
       values_to = "value"
     ) %>%
     mutate(
-      Legend = factor(
-        Legend,
+      legend = factor(
+        .data$legend,
         levels = c("estimate", "bootstrap estimate"),
         ordered = TRUE
-      )
+      ),
+      label = paste0(.data$trait_value, "\n(n = ", .data$n_spec, ")")
     )
 
-  p <- ggplot(
-    data = bootstrap_replicates,
-    aes(x = trait_value)
-  ) +
+  p <- bootstrap_replicates %>%
+    mutate(label = paste0(.data$trait_value, "\n(n = ", .data$n_spec, ")")) %>%
+
+    ggplot(aes(x = .data$label)) +
+
     # Show the distribution of bootstrap replicates.
-    geom_violin(aes(y = rep_boot)) +
+    geom_violin(aes(y = .data$rep_boot)) +
 
     # Add bootstrap confidence intervals.
     geom_errorbar(
-      data = bootstrap_intervals,
+      data = bootstrap_intervals %>%
+        mutate(label = paste0(.data$trait_value, "\n(n = ", .data$n_spec, ")")),
       aes(
-        ymin = ll,
-        ymax = ul,
-        colour = int_type
+        ymin = .data$ll,
+        ymax = .data$ul,
+        colour = .data$int_type
       ),
       position = position_dodge(0.8),
       linewidth = 0.8
@@ -75,14 +80,14 @@ plot_bootstrap_results <- function(
     # Add the original and mean bootstrap estimates.
     geom_point(
       data = estimates_df,
-      aes(y = value, shape = Legend),
+      aes(y = .data$value, shape = .data$legend),
       colour = "black",
       position = position_dodge(0.2),
       size = 4
     ) +
 
     # Show each trait value in a separate panel.
-    facet_wrap(~trait_value, scales = "free") +
+    facet_wrap(~label, scales = "free") +
 
     # Set labels and legend position.
     labs(

@@ -32,14 +32,14 @@ calculate_rli_change <- function(
   max_score = 5
 ) {
   # Calculate the RLI for the reference and comparison assessments
-  rli_ref <- calculate_rli(
+  rli_ref <- calculate_rli( # nolint: object_usage_linter
     x = x,
     rli_scores = rli_scores,
     col = ref_col,
     max_score = max_score
   )
 
-  rli_diff <- calculate_rli(
+  rli_diff <- calculate_rli( # nolint: object_usage_linter
     x = x,
     rli_scores = rli_scores,
     col = diff_col,

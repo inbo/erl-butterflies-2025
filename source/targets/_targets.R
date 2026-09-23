@@ -43,24 +43,24 @@ list(
     name = traits_data_filtered,
     command = traits_data %>%
       dplyr::filter(nYears >= 2) %>%
-      select("Speciesname", "Trait", "TraitValue") %>%
       mutate(
         TraitValue = case_when(
           TraitValue == "VeryLow" ~ "Lowland",
           TraitValue == "Low" ~ "Lowland",
-          TraitValue == "Intermediate" ~ "Intermediate",
           TraitValue == "High" ~ "Upland",
           TraitValue == "VeryHigh" ~ "Upland",
+          TraitValue == "PartialBivoltine" ~ "Bivoltine",
           TRUE ~ TraitValue
-      )
-    )
+        )
+      ) %>%
+      distinct(Speciesname, Trait, TraitValue)
   ),
   ## Prepare red list data
   tar_target(
     name = red_list_data_filtered,
     command = red_list_data %>%
-      filter(Year != "y1999") %>%
-      filter(!is.na(RLC))
+      dplyr::filter(Year != "y1999") %>%
+      dplyr::filter(!is.na(RLC))
   ),
 
   # Map over every trait
@@ -68,7 +68,15 @@ list(
     values = list(
       trait_map = c(
         "BiotopePreference",
-        "Elevation"
+        "Elevation",
+        "GlobalDistribution",
+        "HostPlantType",
+        "OverwinteringStage",
+        "RangeSize",
+        "Specialisation",
+        "SpeciesTemperatureIndex",
+        "Voltinism",
+        "Wingspan"
       )
     ),
 
@@ -76,7 +84,10 @@ list(
     tar_target(
       name = single_trait_data,
       command = traits_data_filtered %>%
-        dplyr::filter(Trait == trait_map)
+        dplyr::filter(Trait == trait_map) %>%
+        dplyr::filter(
+          TraitValue != "Range extends outside the Palaearctic and Holarctic"
+        )
     ),
     tar_group_by(
       name = single_trait_data_grouped,
@@ -95,13 +106,10 @@ list(
       ),
       pattern = map(single_trait_data_grouped)
     ),
-    ## Filter and pivot data
+    ## Clean and pivot data
     tar_target(
       name = analysis_data_wide,
       command = single_trait_data_joined %>%
-        dplyr::filter(
-          TraitValue != "Range extends outside Palearctic and Holarctic"
-        ) %>%
         dplyr::filter(!is.na(RLC)) %>%
         pivot_wider(
           id_cols = c(Speciesname, Trait, TraitValue),
