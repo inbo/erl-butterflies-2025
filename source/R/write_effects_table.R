@@ -22,6 +22,8 @@ write_effects_table <- function(
   digits = 3,
   ...
 ) {
+  require("dplyr")
+
   # Check that exactly one trait is present.
   trait <- unique(x$trait)
 
