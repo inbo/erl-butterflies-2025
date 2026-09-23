@@ -17,10 +17,10 @@
 #' @return A character string giving the path to the written CSV file.
 #'
 write_effects_table <- function(
-    x,
-    path,
-    digits = 3,
-    ...
+  x,
+  path,
+  digits = 3,
+  ...
 ) {
   # Check that exactly one trait is present.
   trait <- unique(x$trait)
@@ -76,4 +76,3 @@ write_effects_table <- function(
   # Return the path to the written file.
   return(file)
 }
-
