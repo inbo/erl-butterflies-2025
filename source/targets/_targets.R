@@ -55,11 +55,29 @@ list(
   ),
 
   # Prepare analysis datasets
+  ## Prepare red list data
+  tar_target(
+    name = red_list_data_filtered,
+    command = red_list_data %>%
+      # Filter out 1999 and NA's
+      dplyr::filter(Year != "y1999") %>%
+      dplyr::filter(!is.na(RLC)) %>%
+      # Calculate species assessed in both 2010 and 2025
+      mutate(assessed_2010_2025 = all(c("y2010", "y2025") %in% Year),
+             .by = "Speciesname")
+  ),
+
   ## Prepare traits data
   tar_target(
     name = traits_data_filtered,
     command = traits_data %>%
-      dplyr::filter(nYears >= 2) %>%
+      # Only retain species assessed in both 2010 and 2025
+      semi_join(
+        red_list_data_filtered %>%
+          dplyr::filter(assessed_2010_2025),
+        by = "Speciesname"
+      ) %>%
+      # Group some trait values
       mutate(
         TraitValue = case_when(
           TraitValue == "VeryLow" ~ "Lowland",
@@ -72,7 +90,7 @@ list(
       ) %>%
       distinct(Speciesname, Trait, TraitValue)
   ),
-  ## Add overall trait
+  ## Add overall trait for analysis over all species
   tar_target(
     name = traits_data_full,
     command = traits_data_filtered %>%
@@ -85,15 +103,8 @@ list(
           distinct()
       )
   ),
-  ## Prepare red list data
-  tar_target(
-    name = red_list_data_filtered,
-    command = red_list_data %>%
-      dplyr::filter(Year != "y1999") %>%
-      dplyr::filter(!is.na(RLC))
-  ),
 
-  # Map over every trait
+  # Perform bootstrapping by mapping over each trait
   tar_map(
     values = list(
       trait_map = c(
@@ -111,7 +122,7 @@ list(
       )
     ),
 
-    # Prepare grouping over each trait dataset
+    # Prepare branching per trait value within the trait dataset
     tar_target(
       name = single_trait_data,
       command = traits_data_full %>%
