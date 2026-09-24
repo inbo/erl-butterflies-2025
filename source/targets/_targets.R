@@ -201,7 +201,7 @@ list(
         rli_scores = red_list_scores,
         col = "RLC_y2025",
         max_score = 5,
-        bootstrap_samples = 1000,
+        bootstrap_samples = 10000,
         seed = 123
       ),
       pattern = map(analysis_data_wide),
@@ -223,7 +223,7 @@ list(
         f = calculate_rli_change,
         rli_scores = red_list_scores,
         max_score = 5,
-        bootstrap_samples = 1000,
+        bootstrap_samples = 10000,
         seed = 123
       ),
       pattern = map(analysis_data_wide),
