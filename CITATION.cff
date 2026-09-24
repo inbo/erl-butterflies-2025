@@ -5,25 +5,26 @@ title: "Code and analyses for the 2025 European Red List of butterflies and comp
 authors:
 - given-names: Dirk
   family-names: Maes
-  affiliation: Research Institute for Nature and Forest (INBO)
+  affiliation: Research Institute for Nature and Forest (INBO); Radboud University
+    (Nijmegen); Butterfly Conservation Europe
   orcid: 0000-0002-7947-3788
+- given-names: Rudi
+  family-names: Verovnik
+  affiliation: University of Ljubljana
+  orcid: 0000-0002-5841-5925
+- given-names: Ward
+  family-names: Langeraert
+  affiliation: Research Institute for Nature and Forest (INBO)
+  orcid: 0000-0002-5900-8109
 - given-names: Martin S.
   family-names: Warren
   affiliation: Butterfly Conservation Europe
 - given-names: Sam
   family-names: Ellis
   affiliation: Butterfly Conservation Europe
-- given-names: Ward
-  family-names: Langeraert
-  affiliation: Research Institute for Nature and Forest (INBO)
-  orcid: 0000-0002-5900-8109
-- given-names: Rudi
-  family-names: Verovnik
-  affiliation: University of Ljubljana
-  orcid: 0000-0002-5841-5925
 - given-names: Chris A. M.
   family-names: van Swaay
-  affiliation: Dutch Butterfly Conservation
+  affiliation: Butterfly Conservation Europe; Dutch Butterfly Conservation
   orcid: 0000-0003-0927-2216
 keywords:
 - European butterflies
@@ -34,7 +35,8 @@ keywords:
 contact:
 - given-names: Dirk
   family-names: Maes
-  affiliation: Research Institute for Nature and Forest (INBO)
+  affiliation: Research Institute for Nature and Forest (INBO); Radboud University
+    (Nijmegen); Butterfly Conservation Europe
   orcid: 0000-0002-7947-3788
 doi: ~
 license: CC BY 4.0

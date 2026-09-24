@@ -15,7 +15,7 @@
   "contributors": [
     {
       "name": "Maes, Dirk",
-      "affiliation": "Research Institute for Nature and Forest (INBO)",
+      "affiliation": "Research Institute for Nature and Forest (INBO); Radboud University (Nijmegen); Butterfly Conservation Europe",
       "orcid": "0000-0002-7947-3788",
       "type": "contactperson"
     },
@@ -27,8 +27,18 @@
   "creators": [
     {
       "name": "Maes, Dirk",
-      "affiliation": "Research Institute for Nature and Forest (INBO)",
+      "affiliation": "Research Institute for Nature and Forest (INBO); Radboud University (Nijmegen); Butterfly Conservation Europe",
       "orcid": "0000-0002-7947-3788"
+    },
+    {
+      "name": "Verovnik, Rudi",
+      "affiliation": "University of Ljubljana",
+      "orcid": "0000-0002-5841-5925"
+    },
+    {
+      "name": "Langeraert, Ward",
+      "affiliation": "Research Institute for Nature and Forest (INBO)",
+      "orcid": "0000-0002-5900-8109"
     },
     {
       "name": "Warren, Martin S.",
@@ -39,18 +49,8 @@
       "affiliation": "Butterfly Conservation Europe"
     },
     {
-      "name": "Langeraert, Ward",
-      "affiliation": "Research Institute for Nature and Forest (INBO)",
-      "orcid": "0000-0002-5900-8109"
-    },
-    {
-      "name": "Verovnik, Rudi",
-      "affiliation": "University of Ljubljana",
-      "orcid": "0000-0002-5841-5925"
-    },
-    {
       "name": "van Swaay, Chris A. M.",
-      "affiliation": "Dutch Butterfly Conservation",
+      "affiliation": "Butterfly Conservation Europe; Dutch Butterfly Conservation",
       "orcid": "0000-0003-0927-2216"
     }
   ],
