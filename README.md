@@ -4,7 +4,7 @@
 [![Release](https://img.shields.io/github/release/inbo/erl-butterflies-2025.svg)](https://github.com/inbo/erl-butterflies-2025/releases)
 ![GitHub repo size](https://img.shields.io/github/repo-size/inbo/erl-butterflies-2025)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![data](https://zenodo.org/badge/DOI/10.5281/zenodo.22940460.svg)](https://doi.org/10.5281/zenodo.22940460))
+[![data](https://badgen.net/static/data/10.5281%2Fzenodo.22940460/orange)](https://doi.org/10.5281/zenodo.22940460)
 <!-- badges: end -->
 
 # Code and analyses for the 2025 European Red List of butterflies and comparison with the 2010 assessment
