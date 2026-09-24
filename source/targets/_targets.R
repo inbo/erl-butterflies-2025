@@ -104,6 +104,12 @@ list(
       )
   ),
 
+  # Define red list scores
+  tar_target(
+    name = red_list_scores,
+    command = c(LC = 0, NT = 1, VU = 2, EN = 3, CR = 4, EX = 5, RE = 5)
+  ),
+
   # Perform bootstrapping by mapping over each trait
   tar_map(
     values = list(
@@ -161,11 +167,6 @@ list(
         ) %>%
         select("Speciesname", "Trait", "TraitValue", "RLC_y2010", "RLC_y2025"),
       pattern = map(single_trait_data_joined)
-    ),
-    ## Define red list scores
-    tar_target(
-      name = red_list_scores,
-      command = c(LC = 0, NT = 1, VU = 2, EN = 3, CR = 4, EX = 5, RE = 5)
     ),
 
     # Calculate bootstrap confidence intervals
