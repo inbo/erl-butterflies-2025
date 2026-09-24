@@ -1,19 +1,36 @@
-# Load packages required to define the pipeline:
+# Load packages required to define the pipeline
 library(targets)
 library(tarchetypes)
 library(dplyr)
 library(tidyr)
 library(readr)
 
-# Set target options:
+# Set target options
 tar_option_set(
   packages = c("boot", "ggplot2", "dplyr", "tidyr", "effectclass")
 )
 
-# Run the R scripts in the R/ folder with your custom functions:
+# Get custom functions
 tar_source("./source/R")
 
-# Replace the target list below with your own:
+## Download data from zenodo if necessary
+dir.create("data", showWarnings = FALSE, recursive = TRUE)
+if (!file.exists("./data/tblTrait.csv")) {
+  zen4R::download_zenodo(
+    "10.5281/zenodo.22940460",
+    path = "data",
+    files = list("tblTrait.csv")
+  )
+}
+if (!file.exists("./data/tblRLCEurope20102025.csv")) {
+  zen4R::download_zenodo(
+    "10.5281/zenodo.22940460",
+    path = "data",
+    files = list("tblRLCEurope20102025.csv")
+  )
+}
+
+# target list
 list(
   # Read raw data
   ## Trait data
