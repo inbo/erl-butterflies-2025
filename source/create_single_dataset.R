@@ -1,5 +1,6 @@
 library(tidyverse)
 
+# Trait data
 files <- list.files(
   "./data",
   pattern = "^tblTrait.+\\.csv$",
@@ -24,8 +25,22 @@ tbl_trait <- files %>%
   select(
     Speciesname = SpeciesnameFull,
     Trait,
-    TraitValue,
-    nYears
+    TraitValue
   )
 
 write_csv(tbl_trait, "./data/tblTrait.csv")
+
+# Red list data
+tbl_rle <- read_delim(
+  "./data/tblRLCEurope20102025_short.csv",
+  delim = ";",
+  show_col_types = FALSE
+) %>%
+  select(
+    Speciesname,
+    RLC,
+    Year,
+    GlobalRange
+  )
+
+write_csv(tbl_rle, "./data/tblRLCEurope20102025.csv")
