@@ -27,7 +27,7 @@
 [^RIBES]: Radboud University (Nijmegen)
 [^UnoL]: University of Ljubljana
 
-**keywords**:  European butterflies; Red List Index; extinction risk; conservation status; species traits
+**keywords**:  European butterflies; Red List Index; extinction risk; conservation status; species traits; insect decline
 
 <!-- community: inbo -->
 
@@ -80,7 +80,7 @@ targets::tar_make(
 )
 ```
 
-The pipeline automatically downloads the required input data from Zenodo (*link*).
+The pipeline automatically downloads the required input data from Zenodo ([![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22940460.svg)](https://doi.org/10.5281/zenodo.22940460)).
 Generated figures and tables are written to the `output` directory.
 
 The `{targets}` pipeline keeps intermediate results in `source/targets/objects`.
