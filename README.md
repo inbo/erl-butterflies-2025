@@ -2,17 +2,19 @@
 ![Language: en-GB](https://img.shields.io/badge/language-en--GB-c04384)
 [![CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-brightgreen)](https://raw.githubusercontent.com/inbo/citeme/refs/heads/main/inst/licenses/cc_by_4_0.md)
 [![Release](https://img.shields.io/github/release/inbo/erl-butterflies-2025.svg)](https://github.com/inbo/erl-butterflies-2025/releases)
+![GitHub repo size](https://img.shields.io/github/repo-size/inbo/erl-butterflies-2025)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![data](https://badgen.net/static/data/10.5281%2Fzenodo.22940460/orange)](https://doi.org/10.5281/zenodo.22940460)
 <!-- badges: end -->
 
 # Code and analyses for the 2025 European Red List of butterflies and comparison with the 2010 assessment
 
-[Maes, Dirk![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-7947-3788)[^aut][^cre][^INBO];
+[Maes, Dirk![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-7947-3788)[^aut][^cre][^INBO][^RIBES][^BtCE];
+[Verovnik, Rudi![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5841-5925)[^aut][^UnoL];
+[Langeraert, Ward![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5900-8109)[^aut][^INBO];
 [Warren, Martin S.](mailto:martin.warren%40bc-europe.eu)[^aut][^BtCE];
 [Ellis, Sam](mailto:sam.ellis%40bc-europe.eu)[^aut][^BtCE];
-[Langeraert, Ward![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5900-8109)[^aut][^INBO];
-[Verovnik, Rudi![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5841-5925)[^aut][^UnoL];
-[van Swaay, Chris A. M.![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0003-0927-2216)[^aut][^DtBC];
+[van Swaay, Chris A. M.![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0003-0927-2216)[^aut][^BtCE][^DtBC];
 [Research Institute for Nature and Forest (INBO)](mailto:info%40inbo.be)[^cph][^fnd][^pbl]
 
 [^aut]: author
@@ -23,9 +25,10 @@
 [^fnd]: funder
 [^INBO]: Research Institute for Nature and Forest (INBO)
 [^pbl]: publisher
+[^RIBES]: Radboud University (Nijmegen)
 [^UnoL]: University of Ljubljana
 
-**keywords**:  European butterflies; Red List Index; extinction risk; conservation status; species traits
+**keywords**:  European butterflies; Red List Index; extinction risk; conservation status; species traits; insect decline
 
 <!-- community: inbo -->
 
@@ -78,7 +81,7 @@ targets::tar_make(
 )
 ```
 
-The pipeline automatically downloads the required input data from Zenodo (*link*).
+The pipeline automatically downloads the required input data from Zenodo (DOI: [10.5281/zenodo.22940460](https://doi.org/10.5281/zenodo.22940460)).
 Generated figures and tables are written to the `output` directory.
 
 The `{targets}` pipeline keeps intermediate results in `source/targets/objects`.

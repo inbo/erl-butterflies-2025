@@ -1,19 +1,36 @@
-# Load packages required to define the pipeline:
+# Load packages required to define the pipeline
 library(targets)
 library(tarchetypes)
 library(dplyr)
 library(tidyr)
 library(readr)
 
-# Set target options:
+# Set target options
 tar_option_set(
   packages = c("boot", "ggplot2", "dplyr", "tidyr", "effectclass")
 )
 
-# Run the R scripts in the R/ folder with your custom functions:
+# Get custom functions
 tar_source("./source/R")
 
-# Replace the target list below with your own:
+## Download data from zenodo if necessary
+dir.create("data", showWarnings = FALSE, recursive = TRUE)
+if (!file.exists("./data/tblTrait.csv")) {
+  zen4R::download_zenodo(
+    "10.5281/zenodo.22940460",
+    path = "data",
+    files = list("tblTrait.csv")
+  )
+}
+if (!file.exists("./data/tblRLCEurope20102025.csv")) {
+  zen4R::download_zenodo(
+    "10.5281/zenodo.22940460",
+    path = "data",
+    files = list("tblRLCEurope20102025.csv")
+  )
+}
+
+# target list
 list(
   # Read raw data
   ## Trait data
@@ -38,11 +55,29 @@ list(
   ),
 
   # Prepare analysis datasets
+  ## Prepare red list data
+  tar_target(
+    name = red_list_data_filtered,
+    command = red_list_data %>%
+      # Filter out 1999 and NA's
+      dplyr::filter(Year != "y1999") %>%
+      dplyr::filter(!is.na(RLC)) %>%
+      # Calculate species assessed in both 2010 and 2025
+      mutate(assessed_2010_2025 = all(c("y2010", "y2025") %in% Year),
+             .by = "Speciesname")
+  ),
+
   ## Prepare traits data
   tar_target(
     name = traits_data_filtered,
     command = traits_data %>%
-      dplyr::filter(nYears >= 2) %>%
+      # Only retain species assessed in both 2010 and 2025
+      semi_join(
+        red_list_data_filtered %>%
+          dplyr::filter(assessed_2010_2025),
+        by = "Speciesname"
+      ) %>%
+      # Group some trait values
       mutate(
         TraitValue = case_when(
           TraitValue == "VeryLow" ~ "Lowland",
@@ -55,7 +90,7 @@ list(
       ) %>%
       distinct(Speciesname, Trait, TraitValue)
   ),
-  ## Add overall trait
+  ## Add overall trait for analysis over all species
   tar_target(
     name = traits_data_full,
     command = traits_data_filtered %>%
@@ -68,15 +103,14 @@ list(
           distinct()
       )
   ),
-  ## Prepare red list data
+
+  # Define red list scores
   tar_target(
-    name = red_list_data_filtered,
-    command = red_list_data %>%
-      dplyr::filter(Year != "y1999") %>%
-      dplyr::filter(!is.na(RLC))
+    name = red_list_scores,
+    command = c(LC = 0, NT = 1, VU = 2, EN = 3, CR = 4, EX = 5, RE = 5)
   ),
 
-  # Map over every trait
+  # Perform bootstrapping by mapping over each trait
   tar_map(
     values = list(
       trait_map = c(
@@ -94,7 +128,7 @@ list(
       )
     ),
 
-    # Prepare grouping over each trait dataset
+    # Prepare branching per trait value within the trait dataset
     tar_target(
       name = single_trait_data,
       command = traits_data_full %>%
@@ -134,11 +168,6 @@ list(
         select("Speciesname", "Trait", "TraitValue", "RLC_y2010", "RLC_y2025"),
       pattern = map(single_trait_data_joined)
     ),
-    ## Define red list scores
-    tar_target(
-      name = red_list_scores,
-      command = c(LC = 0, NT = 1, VU = 2, EN = 3, CR = 4, EX = 5, RE = 5)
-    ),
 
     # Calculate bootstrap confidence intervals
     ## Bootstrapping RLI 2010
@@ -173,7 +202,7 @@ list(
         rli_scores = red_list_scores,
         col = "RLC_y2025",
         max_score = 5,
-        bootstrap_samples = 1000,
+        bootstrap_samples = 10000,
         seed = 123
       ),
       pattern = map(analysis_data_wide),
@@ -195,7 +224,7 @@ list(
         f = calculate_rli_change,
         rli_scores = red_list_scores,
         max_score = 5,
-        bootstrap_samples = 1000,
+        bootstrap_samples = 10000,
         seed = 123
       ),
       pattern = map(analysis_data_wide),
