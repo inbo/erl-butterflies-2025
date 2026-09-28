@@ -84,7 +84,7 @@ plots <- lapply(
 
     # Get axis label size
     if (length(unique(x$trait_value)) > 4) {
-      label_size <- 5
+      label_size <- 5.5
     } else {
       label_size <- 7
     }
@@ -139,7 +139,7 @@ plots <- lapply(
         legend.position = "top",
 
         # Text
-        plot.title = element_text(size = 11, face = "bold"),
+        plot.title = element_text(size = 11),
         axis.title.x = element_text(
           size = 9,
           margin = margin(t = 10)
@@ -187,7 +187,7 @@ figure <- cowplot::plot_grid(
   ),
   ncol = 2,
   align = "hv",
-  label_size = 10,
+  label_size = 12,
   label_fontface = "bold",
   label_x = 0.015,
   label_y = 0.99,
@@ -204,7 +204,7 @@ figure <- cowplot::plot_grid(
   )
 
 # Put the legend above the grid
-figure_test <- cowplot::plot_grid(
+figure_final <- cowplot::plot_grid(
   figure,
   legend,
   ncol = 1,
@@ -220,7 +220,7 @@ figure_test <- cowplot::plot_grid(
   )
 
 save_figure(
-  figure_test,
+  figure_final,
   file_name = "rli_change_effects",
   path = "output/figures/paper",
   devices = devices,
