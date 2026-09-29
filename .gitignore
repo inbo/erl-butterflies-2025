@@ -20,6 +20,7 @@
 *.shp*
 *.shx
 *.sty
+*.tmp
 *.tex
 *.xls*
 *_cache

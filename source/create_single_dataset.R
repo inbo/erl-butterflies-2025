@@ -1,3 +1,7 @@
+# This script is for internal use only
+# It is used by the authors to create a single input dataset for the trait -
+# RLI analysis
+
 library(tidyverse)
 
 # Trait data
