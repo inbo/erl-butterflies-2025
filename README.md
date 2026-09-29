@@ -88,9 +88,31 @@ The `{targets}` pipeline keeps intermediate results in `source/targets/objects`.
 Individual results can be retrieved without rerunning the complete analysis, for example:
 
 ```r
+# Some examples
+targets::tar_read(
+  traits_data_filtered,
+  store = "./source/targets"
+)
+
 targets::tar_read(
   rli_change_boot_Elevation,
   store = "./source/targets"
+)
+```
+
+Or use the custom helper function:
+
+```r
+source(file.path("source", "R", "tar_read_rli.R"))
+
+# Some examples
+tar_read_rli(
+  "traits_data_filtered"
+)
+
+tar_read_rli(
+  "rli_change_boot",
+  trait = "Elevation"
 )
 ```
 
