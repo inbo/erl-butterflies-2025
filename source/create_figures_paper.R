@@ -32,14 +32,26 @@ traits <- c(
   "Voltinism",
   "OverwinteringStage",
   "Wingspan",
-  "Elevation",
-  "Overall"
+  "Elevation"
 )
-rli_change_effects_raw <- lapply(traits, function(x) {
-  tar_read_rli(
-    name = "rli_change_effects",
-    trait = x
-  )
+rli_change_effects_raw <- lapply(traits, function(t) {
+  # Create file name
+  path <- "output/tables"
+  file <- paste0("rli_change_results_", t, ".csv")
+
+  # Get CSV file with results
+  if (file.exists(file.path(path, file))) {
+    read_csv(
+      file.path(path, file),
+      show_col_types = FALSE
+    )
+  } else {
+    zen4R::download_zenodo(
+      "10.5281/zenodo.22940460",
+      path = path,
+      files = list(file)
+    )
+  }
 })
 names(rli_change_effects_raw) <- traits
 
@@ -133,7 +145,7 @@ plots <- lapply(
         )
       ) +
       scale_y_continuous(
-        limits = c(-0.33, 0.04),
+        limits = c(-0.31, 0.05),
         breaks = seq(-0.5, 0.05, by = 0.05),
         labels = scales::label_number(accuracy = 0.01)
       ) +
@@ -155,6 +167,7 @@ plots <- lapply(
       )
   }
 )
+plots
 
 # Extract the legend from the plot
 p <- bind_rows(rli_change_effects_raw) %>%
@@ -183,9 +196,9 @@ plots <- lapply(
 
 # Grid of plots
 figure <- cowplot::plot_grid(
-  plotlist = plots[-length(plots)],
+  plotlist = plots,
   labels = paste0(
-    LETTERS[seq_along(plots[-length(plots)])],
+    LETTERS[seq_along(plots)],
     "."
   ),
   ncol = 2,
