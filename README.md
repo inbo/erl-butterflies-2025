@@ -109,10 +109,13 @@ output/
 
 The `source/targets/objects` directory contains cached intermediate results managed by `{targets}` and is used to avoid unnecessarily repeating computationally intensive steps.
 
+The figures for the paper are created in `create_figures_paper.R`.
+
 ### Repo structure
 
 ```bash
 ├── source
+│   ├── create_figures_paper.R     ├ script to create figures for the paper
 │   ├── targets                    ├ {targets} pipeline folder
 │   └── R                          ├ helper functions for the pipeline
 ├── data                           ├ data folder automatically created during code execution

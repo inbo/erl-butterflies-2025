@@ -1,3 +1,6 @@
+# This script creates the figure of the change in RLI for the paper
+# The Red List Index of European butterflies: Extinction risk is trait-dependent
+
 ## Load packages
 library(targets)
 library(tidyverse)
