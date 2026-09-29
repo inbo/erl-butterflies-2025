@@ -51,6 +51,10 @@ rli_change_effects_raw <- lapply(traits, function(t) {
       path = path,
       files = list(file)
     )
+    read_csv(
+      file.path(path, file),
+      show_col_types = FALSE
+    )
   }
 })
 names(rli_change_effects_raw) <- traits
