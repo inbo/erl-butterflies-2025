@@ -2,7 +2,6 @@
 # The Red List Index of European butterflies: Extinction risk is trait-dependent
 
 ## Load packages
-library(targets)
 library(tidyverse)
 library(INBOtheme)
 
@@ -103,15 +102,6 @@ plots <- lapply(
     # Get dataframe
     x <- rli_change_effects[[i]]
 
-    # Get axis label size
-    if (length(unique(x$trait_value)) > 4) {
-      label_size <- 5
-    } else if (length(unique(x$trait_value)) < 4) {
-      label_size <- 7
-    } else {
-      label_size <- 6
-    }
-
     x %>%
       ggplot(
         aes(
@@ -168,7 +158,7 @@ plots <- lapply(
           margin = margin(t = 10)
         ),
         axis.text.x = element_text(size = 7),
-        axis.text.y = element_text(size = label_size),
+        axis.text.y = element_text(size = 7),
 
         # Spacing
         plot.margin = margin(0, 0, 0, 0)
@@ -192,7 +182,9 @@ p <- bind_rows(rli_change_effects_raw) %>%
     show.legend = TRUE
   ) +
   labs(colour = "") +
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom",
+        legend.key.size = unit(0.25, "cm"),
+        legend.text = element_text(size = 9))
 legend <- cowplot::get_legend(p)
 
 
@@ -247,7 +239,7 @@ save_figure(
   figure_final,
   file_name = "rli_change_effects",
   path = "output/figures/paper",
-  devices = "jpg", #devices,
+  devices = devices,
   width = 210,
   height = 297,
   units = "mm"
