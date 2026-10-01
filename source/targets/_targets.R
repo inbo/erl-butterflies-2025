@@ -124,7 +124,8 @@ list(
         "SpeciesTemperatureIndex",
         "Voltinism",
         "Wingspan",
-        "Overall"
+        "Overall",
+        "TemperatureRange"
       )
     ),
 
