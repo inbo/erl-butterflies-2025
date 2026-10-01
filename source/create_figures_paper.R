@@ -9,7 +9,7 @@ library(INBOtheme)
 theme_set(theme_inbo(transparent = TRUE))
 
 ## Globals
-devices <- c("png", "jpg", "pdf", "eps") # Devices to export
+devices <- c("png", "jpg", "pdf", "svg") # Devices to export
 # Function to save figures using multiple devices
 source(file.path("source", "R", "save_figure.R"))
 # Function to read data from a targets pipeline
@@ -23,9 +23,11 @@ threshold <- 0.02
 
 ## Load data
 traits <- c(
+  "Overall",
   "GlobalDistribution",
   "RangeSize",
   "SpeciesTemperatureIndex",
+  "TemperatureRange",
   "BiotopePreference",
   "Specialisation",
   "HostPlantType",
@@ -78,7 +80,7 @@ rli_change_effects <- lapply(rli_change_effects_raw, function(x) {
       ),
       trait_label = paste0(
         .data$trait_clean,
-        "\n(n = ",
+        " (n = ",
         .data$n_spec,
         ")"
       )
@@ -103,9 +105,11 @@ plots <- lapply(
 
     # Get axis label size
     if (length(unique(x$trait_value)) > 4) {
-      label_size <- 5.5
-    } else {
+      label_size <- 5
+    } else if (length(unique(x$trait_value)) < 4) {
       label_size <- 7
+    } else {
+      label_size <- 6
     }
 
     x %>%
@@ -135,7 +139,7 @@ plots <- lapply(
       coord_flip() +
       labs(
         x = "",
-        y = if (i %in% c(9, 10)) {
+        y = if (i %in% (length(traits) - 1):length(traits)) {
           "Difference in Red List Index\nbetween 2025 and 2010"
         } else {
           ""
@@ -167,7 +171,7 @@ plots <- lapply(
         axis.text.y = element_text(size = label_size),
 
         # Spacing
-        plot.margin = margin(2, 2, 2, 2)
+        plot.margin = margin(0, 0, 0, 0)
       )
   }
 )
@@ -243,7 +247,7 @@ save_figure(
   figure_final,
   file_name = "rli_change_effects",
   path = "output/figures/paper",
-  devices = devices,
+  devices = "jpg", #devices,
   width = 210,
   height = 297,
   units = "mm"
