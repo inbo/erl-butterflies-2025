@@ -338,7 +338,11 @@ list(
     tar_target(
       name = rli_change_effects_path,
       command = write_effects_table(
-        rli_change_effects,
+        rli_change_effects %>%
+          order_trait_values( # Sort trait values
+            trait = trait_map
+          ) %>%
+          arrange(trait_value),
         path = "./output/tables",
         digits = 6
       )
