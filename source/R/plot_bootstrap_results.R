@@ -34,6 +34,17 @@ plot_bootstrap_results <- function(
   require("rlang")
   require("tidyr")
 
+  # Get trait and order trait values
+  trait_char <- unique(bootstrap_replicates$trait)
+  bootstrap_replicates <- order_trait_values( # nolint: object_usage_linter
+    bootstrap_replicates,
+    trait = trait_char
+  )
+  bootstrap_intervals <- order_trait_values( # nolint: object_usage_linter
+    bootstrap_intervals,
+    trait = trait_char
+  )
+
   # Prepare the original and mean bootstrap estimates for plotting.
   estimates_df <- bootstrap_intervals %>%
     distinct(
@@ -54,11 +65,28 @@ plot_bootstrap_results <- function(
         ordered = TRUE
       ),
       label = paste0(.data$trait_value, "\n(n = ", .data$n_spec, ")")
+    ) %>%
+    mutate(
+      label = factor(
+        .data$label,
+        levels = unique(.data$label[
+          order(as.integer(.data$trait_value))
+        ]),
+        ordered = TRUE
+      )
     )
 
   p <- bootstrap_replicates %>%
     mutate(label = paste0(.data$trait_value, "\n(n = ", .data$n_spec, ")")) %>%
-
+    mutate(
+      label = factor(
+        .data$label,
+        levels = unique(.data$label[
+          order(as.integer(.data$trait_value))
+        ]),
+        ordered = TRUE
+      )
+    ) %>%
     ggplot(aes(x = .data$label)) +
 
     # Show the distribution of bootstrap replicates.
@@ -67,7 +95,18 @@ plot_bootstrap_results <- function(
     # Add bootstrap confidence intervals.
     geom_errorbar(
       data = bootstrap_intervals %>%
-        mutate(label = paste0(.data$trait_value, "\n(n = ", .data$n_spec, ")")),
+        mutate(
+          label = paste0(.data$trait_value, "\n(n = ", .data$n_spec, ")")
+        ) %>%
+        mutate(
+          label = factor(
+            .data$label,
+            levels = unique(.data$label[
+              order(as.integer(.data$trait_value))
+            ]),
+            ordered = TRUE
+          )
+        ),
       aes(
         ymin = .data$ll,
         ymax = .data$ul,
@@ -129,7 +168,7 @@ plot_bootstrap_results <- function(
       path,
       paste0(
         "bootstrap_results_",
-        unique(bootstrap_replicates$trait),
+        trait_char,
         ".png"
       )
     )

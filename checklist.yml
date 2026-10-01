@@ -20,5 +20,5 @@ spelling:
   ignore:
   - .github
   - LICENSE.md
-pak: b-cubed-eu/dubicube
+pak: zen4R
 gha_install: []

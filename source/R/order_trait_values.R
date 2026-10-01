@@ -101,6 +101,20 @@ order_trait_values <- function(x, trait) {
           ordered = TRUE
         )
       )
+  } else if (trait == "Voltinism") {
+    x %>%
+      mutate(
+        trait_value = factor(
+          .data$trait_value,
+          levels = c(
+            "Biennial",
+            "Univoltine",
+            "Bivoltine",
+            "Multivoltine"
+          ),
+          ordered = TRUE
+        )
+      )
   } else {
     x %>%
       mutate(
