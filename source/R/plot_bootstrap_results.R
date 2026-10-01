@@ -95,7 +95,9 @@ plot_bootstrap_results <- function(
     # Add bootstrap confidence intervals.
     geom_errorbar(
       data = bootstrap_intervals %>%
-        mutate(label = paste0(.data$trait_value, "\n(n = ", .data$n_spec, ")")) %>%
+        mutate(
+          label = paste0(.data$trait_value, "\n(n = ", .data$n_spec, ")")
+        ) %>%
         mutate(
           label = factor(
             .data$label,
