@@ -34,6 +34,17 @@ plot_rli_year_results <- function(
   require("dplyr")
   require("rlang")
 
+  # Get trait and order trait values
+  trait_char <- unique(x$trait)
+  x <- order_trait_values( # nolint: object_usage_linter
+    x,
+    trait = trait_char
+  )
+  effects_df <- order_trait_values( # nolint: object_usage_linter
+    effects_df,
+    trait = trait_char
+  )
+
   out <- vector(mode = "list", length = length(interval_type))
 
   for (i in seq_along(interval_type)) {
@@ -49,7 +60,15 @@ plot_rli_year_results <- function(
         relationship = "many-to-many"
       ) %>%
       mutate(
-        trait_value = paste0(.data$trait_value, " (n = ", .data$n_spec, ")")
+        label = paste0(.data$trait_value, " (n = ", .data$n_spec, ")")
+      ) %>%
+      mutate(
+        label = factor(
+          .data$label,
+          levels = unique(.data$label[
+            order(as.integer(.data$trait_value))
+          ])
+        )
       )
 
     # Set position adjustment for estimates and confidence intervals.
@@ -61,8 +80,8 @@ plot_rli_year_results <- function(
       aes(
         x = .data$Year,
         y = .data$est_original,
-        group = .data$trait_value,
-        colour = .data$trait_value
+        group = .data$label,
+        colour = .data$label
       )
     ) +
 
@@ -77,8 +96,8 @@ plot_rli_year_results <- function(
         aes(
           ymin = .data$ll,
           ymax = .data$ul,
-          colour = .data$trait_value,
-          group = .data$trait_value
+          colour = .data$label,
+          group = .data$label
         ),
         width = 2,
         linewidth = 1,
@@ -99,7 +118,7 @@ plot_rli_year_results <- function(
           x = .data$Year + 2,
           y = .data$est_original,
           label = as.character(.data$effect_code),
-          fill = .data$trait_value
+          fill = .data$label
         ),
         colour = "white",
         box.padding = 0,

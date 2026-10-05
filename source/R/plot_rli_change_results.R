@@ -30,6 +30,13 @@ plot_rli_change_results <- function(
   require("dplyr")
   require("rlang")
 
+  # Get trait and order trait values
+  trait_char <- unique(effects_df$trait)
+  effects_df <- order_trait_values( # nolint: object_usage_linter
+    effects_df,
+    trait = trait_char
+  )
+
   out <- vector(mode = "list", length = length(interval_type))
 
   for (i in seq_along(interval_type)) {
@@ -38,11 +45,20 @@ plot_rli_change_results <- function(
     plot_data <- effects_df %>%
       filter_out(.data$int_type != interval) %>%
       mutate(
-        trait_value = paste0(
+        label = paste0(
           .data$trait_value,
           " (n = ",
           .data$n_spec,
           ")"
+        )
+      ) %>%
+      mutate(
+        label = factor(
+          .data$label,
+          levels = unique(.data$label[
+            order(as.integer(.data$trait_value))
+          ]),
+          ordered = TRUE
         )
       )
 
@@ -50,10 +66,7 @@ plot_rli_change_results <- function(
       plot_data,
       aes(
         y = .data$est_original,
-        x = reorder(
-          .data$trait_value,
-          -.data$est_original
-        ),
+        x = .data$label,
         ymin = .data$ll,
         ymax = .data$ul
       )
