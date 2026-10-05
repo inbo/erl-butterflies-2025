@@ -4,7 +4,7 @@
 [![Release](https://img.shields.io/github/release/inbo/erl-butterflies-2025.svg)](https://github.com/inbo/erl-butterflies-2025/releases)
 ![GitHub repo size](https://img.shields.io/github/repo-size/inbo/erl-butterflies-2025)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![data](https://badgen.net/static/data/10.5281%2Fzenodo.22940460/orange)](https://doi.org/10.5281/zenodo.22940460)
+[![data](https://badgen.net/static/data/10.5281%2Fzenodo.23164000/orange)](https://doi.org/10.5281/zenodo.23164000)
 <!-- badges: end -->
 
 # Code and analyses for the 2025 European Red List of butterflies and comparison with the 2010 assessment
@@ -81,7 +81,7 @@ targets::tar_make(
 )
 ```
 
-The pipeline automatically downloads the required input data from Zenodo (DOI: [10.5281/zenodo.22940460](https://doi.org/10.5281/zenodo.22940460)).
+The pipeline automatically downloads the required input data from Zenodo (DOI: [10.5281/zenodo.23164000](https://doi.org/10.5281/zenodo.23164000)).
 Generated figures and tables are written to the `output` directory.
 
 The `{targets}` pipeline keeps intermediate results in `source/targets/objects`.
@@ -132,7 +132,7 @@ output/
 The `source/targets/objects` directory contains cached intermediate results managed by `{targets}` and is used to avoid unnecessarily repeating computationally intensive steps.
 
 The figures for the paper are created in [`source/create_figures_paper.R`](https://github.com/inbo/erl-butterflies-2025/blob/main/source/create_figures_paper.R).
-The script will download the analysis results from Zenodo if necessary (DOI: [10.5281/zenodo.22940460](https://doi.org/10.5281/zenodo.22940460))
+The script will download the analysis results from Zenodo if necessary (DOI: [10.5281/zenodo.23164000](https://doi.org/10.5281/zenodo.23164000))
 
 ### Repo structure
 
