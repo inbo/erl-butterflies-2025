@@ -178,19 +178,6 @@ rli_2025_df_TemperatureRange|pattern|84a39c198bf40f8d|54885f56f73699c2||-4992197
 rli_2010_df_TemperatureRange|pattern|88d2042ef968c46f|787de494cf44b1a6||-1024550979||||1559|rds|local|vector||rli_2010_df_TemperatureRange_414ca1e28f618a2f*rli_2010_df_TemperatureRange_78d7c0c190241810*rli_2010_df_TemperatureRange_eefa1f9ac17402c2*rli_2010_df_TemperatureRange_be9313d210e8d751|0||
 rli_change_df_TemperatureRange|pattern|947af3bb133da4fe|50f3243044d8794a||1679508991||||1486|rds|local|vector||rli_change_df_TemperatureRange_6cbaea4544243523*rli_change_df_TemperatureRange_d4a6018936ce8f52*rli_change_df_TemperatureRange_3173b711bdccf020*rli_change_df_TemperatureRange_05e8ab58d0399145|0||
 rli_df_TemperatureRange|pattern|9a2363c591be3bb0|96599cc1a48be531||-1294490507||||1910|rds|local|vector||rli_df_TemperatureRange_cf28c29177bbacb5*rli_df_TemperatureRange_aae6bfb677ceeb61*rli_df_TemperatureRange_f9d9962059a88829*rli_df_TemperatureRange_670b2cdc84f54419|0||
-order_trait_values|function|e806f07fd9c656a9
-boot_to_dataframe|function|59adbd514fc331d3
-calculate_rli|function|78d90f48b3f507e4
-write_effects_table|function|4269492a1ba684b5
-add_effect_classification|function|c21cb5192c658102
-bootstrap_rli|function|eec01246d308f34d
-bootci_to_dataframe|function|945240b241ae9288
-save_figure|function|abac1c985d5965e8
-tar_read_rli|function|554d5b090c17fe13
-plot_bootstrap_results|function|013ed149ecd20d86
-plot_rli_year_results|function|04b3728129ba88ae
-plot_rli_change_results|function|dc86ca16620d5a9b
-calculate_rli_change|function|72b6fc9c93c99d5f
 red_list_scores|stem|86f852e49d00c701|7c343aa469f71120|2c530c1562a7fbd1|925486172||t20727.5861836367s|s118b|118|rds|local|vector|||0.469||
 traits_data|stem|e5539411c86127ea|a2df6c65d42282a1|57b477a835def9d5|-1136958989||t20727.586185194s|s15273b|15273|rds|local|vector|||0.093||
 red_list_data|stem|52f975ed079c298e|4c5b26299f0945e4|8275c2606e4cecf9|-612945673||t20727.5861861429s|s8456b|8456|rds|local|vector|||0.032||
@@ -860,25 +847,20 @@ rli_df_GlobalDistribution_66e6e6fbda00e0fd|branch|f0915087a1f55089|c70e4e51e7ac9
 rli_df_GlobalDistribution_f48c79e33c20a82c|branch|f8a746eeeffef314|c70e4e51e7ac99d3|d5b4426ea7e12174|1452194447||t20727.587610013s|s488b|488|rds|local|vector|rli_df_GlobalDistribution||0||
 rli_df_GlobalDistribution_4a538900d7adf897|branch|7c73c42275ca11aa|c70e4e51e7ac99d3|0ff51a3782126711|-1643332008||t20727.5876100941s|s500b|500|rds|local|vector|rli_df_GlobalDistribution||0||
 rli_change_effects_GlobalDistribution|stem|4180678c4b8ac715|5415a5ae2d6e6e33|aed5764ba3f9224a|-455245637||t20727.587610557s|s964b|964|rds|local|vector|||0.032||
-plot_rli_change_boot_GlobalDistribution|stem|1732e17699b651a4|305e18c29949d63a|beb3dd55ac777262|1125966477||t20727.5876260199s|s1326428b|1326428|rds|local|vector|||0.937|Using shapes for an ordinal variable is not advised|
 rli_change_effects_Elevation|stem|81160becf43dcc14|436c596c87070a0d|09274756a0cf76d0|-1658132697||t20727.5876263864s|s753b|753|rds|local|vector|||0||
-plot_rli_change_boot_Elevation|stem|db8cc3efb280522a|48cf5e7a215f55b6|6f313d35515407cb|1171510859||t20727.5876343764s|s917816b|917816|rds|local|vector|||0.422|Using shapes for an ordinal variable is not advised|
 rli_df_Elevation_b7d35cc0d5836b45|branch|102266bf9478a5b3|806c9b18d7c51b19|516fb4ee169adfc5|-310152414||t20727.5876347644s|s478b|478|rds|local|vector|rli_df_Elevation||0||
 rli_df_Elevation_df09abd919f3d5ae|branch|4129178ce438bce6|806c9b18d7c51b19|0052d24bde2b897d|-942895149||t20727.5876348454s|s466b|466|rds|local|vector|rli_df_Elevation||0||
 rli_df_Elevation_cbbc24f6f595b833|branch|7cc4bb356ae26f25|806c9b18d7c51b19|24fbdf45d4db4faf|-1926135837||t20727.5876349265s|s473b|473|rds|local|vector|rli_df_Elevation||0||
 rli_change_effects_HostPlantType|stem|2493a4349d415573|39533f4c5da6627a|8b3f8121ae941558|-1691956141||t20727.5876351232s|s761b|761|rds|local|vector|||0||
-plot_rli_change_boot_HostPlantType|stem|18e7e1a5206fd2c9|021dbe8fd7739b0d|4df6ff15dea0e377|946579910||t20727.5876430675s|s919721b|919721|rds|local|vector|||0.422|Using shapes for an ordinal variable is not advised|
 rli_df_HostPlantType_9cba450be23a5452|branch|ca7fc3afd3bc3a1d|bd4e3d76dd96f5ae|77099c6e11345b29|-1016984271||t20727.58764338s|s484b|484|rds|local|vector|rli_df_HostPlantType||0||
 rli_df_HostPlantType_681c7471314c7c24|branch|f46bed06ee96cd79|bd4e3d76dd96f5ae|7873f9f4076502d8|-1126917935||t20727.5876434726s|s484b|484|rds|local|vector|rli_df_HostPlantType||0||
 rli_df_HostPlantType_b1a9b59c984f2918|branch|10bda1042ad477ca|bd4e3d76dd96f5ae|5493b4b7d70d18d2|800565113||t20727.587643542s|s463b|463|rds|local|vector|rli_df_HostPlantType||0||
 rli_change_effects_Wingspan|stem|814f4c918b6afebe|8421d63c68215d4a|81488490ac8a65a2|-1501108523||t20727.5876437504s|s821b|821|rds|local|vector|||0||
-plot_rli_change_boot_Wingspan|stem|7f8b3e8d8643b1a7|4b0743da916e8ad6|efadb5d7161711ac|-954683049||t20727.587653222s|s1111085b|1111085|rds|local|vector|||0.516|Using shapes for an ordinal variable is not advised|
 rli_df_Wingspan_8f58657b430e0d30|branch|6e93ec5269bb2c15|755cee2af34aef96|358246f96ad5a212|-25904685||t20727.5876535808s|s471b|471|rds|local|vector|rli_df_Wingspan||0||
 rli_df_Wingspan_9ca2e2f9bb5f77f1|branch|f4e055ee021f9f96|755cee2af34aef96|b471fe7823f05fc5|2053815392||t20727.5876536387s|s475b|475|rds|local|vector|rli_df_Wingspan||0||
 rli_df_Wingspan_674edeb798c8983f|branch|0fa2367b84de4232|755cee2af34aef96|415947653af943df|1290410499||t20727.5876537197s|s465b|465|rds|local|vector|rli_df_Wingspan||0||
 rli_df_Wingspan_b3a20deed38b189c|branch|0a04eadbc798f915|755cee2af34aef96|04e2e2697e9a2be9|-87565480||t20727.5876537779s|s481b|481|rds|local|vector|rli_df_Wingspan||0||
 rli_change_effects_Specialisation|stem|eec5aa2faa8b628c|9a556d22fc337f62|666f4dc9960edb70|-2105609867||t20727.5876540206s|s754b|754|rds|local|vector|||0||
-plot_rli_change_boot_Specialisation|stem|2dcc7f8fc40bb70e|511f14e0da54e4ac|11f4f37beaa661d6|1058787757||t20727.5876622574s|s902271b|902271|rds|local|vector|||0.453|Using shapes for an ordinal variable is not advised|
 rli_df_Specialisation_0cdb9d734ad20f0b|branch|794ef0cfccf0aacd|0cb7489f6ab7b3e9|9e0dff486cfe9d13|501289827||t20727.5876627662s|s482b|482|rds|local|vector|rli_df_Specialisation||0||
 rli_df_Specialisation_209039e251e1aed9|branch|6bc41d636752fc95|0cb7489f6ab7b3e9|f9b2a57b2a9fd83e|1122606050||t20727.5876628477s|s505b|505|rds|local|vector|rli_df_Specialisation||0||
 rli_df_Specialisation_c2bc458911b032eb|branch|d45be1eb7969bc3b|0cb7489f6ab7b3e9|249e9add0a46da72|887396432||t20727.5876629051s|s490b|490|rds|local|vector|rli_df_Specialisation||0||
@@ -889,18 +871,14 @@ rli_df_BiotopePreference_09992096cd767039|branch|3f24544191375bee|9c109a8f39c882
 rli_df_BiotopePreference_3e63f3f816f204d1|branch|3a4fbcf8e1f15d55|9c109a8f39c88240|928d6c6372497b6e|447024788||t20727.5876634722s|s402b|402|rds|local|vector|rli_df_BiotopePreference||0||
 rli_df_BiotopePreference_c1149197fd4872dd|branch|81609182a913cb88|9c109a8f39c88240|d13776d7132c7293|-1074690487||t20727.5876635532s|s466b|466|rds|local|vector|rli_df_BiotopePreference||0||
 rli_change_effects_BiotopePreference|stem|786aa2817dd4fb6b|a492db39c7478558|e8891592a5f13d42|-1334922721||t20727.5876637731s|s1028b|1028|rds|local|vector|||0||
-plot_rli_change_boot_BiotopePreference|stem|79ca301a5c2eb1ba|f1718b0745b7f198|53ea6783f1f624bf|1666907726||t20727.587676527s|s1516539b|1516539|rds|local|vector|||0.641|Using shapes for an ordinal variable is not advised|
 rli_change_effects_Overall|stem|faabae0ef7e79f4d|0a49844502917eb5|8ac34b6e44dd5e27|1907453814||t20727.58767683s|s524b|524|rds|local|vector|||0||
-plot_rli_change_boot_Overall|stem|10d086e86512a2ee|dd6df1a5a57bcd2b|5f5854579d75c844|-2128178464||t20727.5876811871s|s469443b|469443|rds|local|vector|||0.234|Using shapes for an ordinal variable is not advised|
 rli_df_Overall_29bd9bc73c1f2a49|branch|074cd9400b69c248|34bf1387b6259d02|735dab5693f99e9e|845476589||t20727.5876974528s|s474b|474|rds|local|vector|rli_df_Overall||0||
 rli_change_effects_SpeciesTemperatureIndex|stem|767ff415a7ebc1cf|30a1d8492bec29dd|2bf979dc8f29212c|732134504||t20727.5876977872s|s845b|845|rds|local|vector|||0||
-plot_rli_change_boot_SpeciesTemperatureIndex|stem|648847f03e104055|10db389c5600c6b9|f96f091799511240|-1440144190||t20727.5877070359s|s1129334b|1129334|rds|local|vector|||0.469|Using shapes for an ordinal variable is not advised|
 rli_df_SpeciesTemperatureIndex_73e76ecc2a61ff1c|branch|5148289be36dfeb7|93975e9681989903|8be07ca893010838|-369956784||t20727.587707325s|s488b|488|rds|local|vector|rli_df_SpeciesTemperatureIndex||0||
 rli_df_SpeciesTemperatureIndex_0a79a736c02976d0|branch|0776f41b13bf5122|93975e9681989903|f4f151ccd8bf6437|110086964||t20727.5877073945s|s496b|496|rds|local|vector|rli_df_SpeciesTemperatureIndex||0||
 rli_df_SpeciesTemperatureIndex_5b07b6c58f1bc09b|branch|821d06058910c4f0|93975e9681989903|80aaff7fcfecb6be|1664079450||t20727.5877076028s|s486b|486|rds|local|vector|rli_df_SpeciesTemperatureIndex||0||
 rli_df_SpeciesTemperatureIndex_bdbe0cb12988d95f|branch|8536898bcf760e8b|93975e9681989903|bb666035ba97fee1|325132451||t20727.5877076607s|s484b|484|rds|local|vector|rli_df_SpeciesTemperatureIndex||0||
 rli_change_effects_OverwinteringStage|stem|30073652ebc9c277|ad6b62dd7c958c22|77c46c53a045fe62|2042821518||t20727.5877078923s|s836b|836|rds|local|vector|||0||
-plot_rli_change_boot_OverwinteringStage|stem|dfefa1c71eb67142|a3da4da12031212a|acd2c2c4f30a9c7f|888320264||t20727.5877180776s|s1095038b|1095038|rds|local|vector|||0.547|Using shapes for an ordinal variable is not advised|
 rli_df_OverwinteringStage_10258608941a158d|branch|e934c1faf909f9e5|d145c632517dfec8|9101bcbe0702c0f5|902941754||t20727.5877184921s|s437b|437|rds|local|vector|rli_df_OverwinteringStage||0||
 rli_df_OverwinteringStage_4dc19bae6cdb1a0c|branch|a34bb546750aac4b|d145c632517dfec8|3c8f2cfee33cc3d0|1167908100||t20727.5877185615s|s497b|497|rds|local|vector|rli_df_OverwinteringStage||0||
 rli_df_OverwinteringStage_499689fe07a81a7c|branch|27066e876f0761a5|d145c632517dfec8|08e920b2cbb0c492|1385968100||t20727.587718631s|s473b|473|rds|local|vector|rli_df_OverwinteringStage||0||
@@ -909,53 +887,75 @@ rli_df_Voltinism_29cd86dcad7b7746|branch|5b1192182e1e6ff0|883235a9b3db71ae|28357
 rli_df_Voltinism_fe98961bdba6d3d5|branch|9793212cef855fd9|883235a9b3db71ae|b877f679d183af95|2077116740||t20727.5877190151s|s483b|483|rds|local|vector|rli_df_Voltinism||0||
 rli_df_Voltinism_564f1fe403345baa|branch|dd50fc6374641a87|883235a9b3db71ae|52edd52a36bc88f5|1075148141||t20727.5877190731s|s485b|485|rds|local|vector|rli_df_Voltinism||0||
 rli_df_Voltinism_4f3321c22bd54590|branch|c953ddf74c05835c|883235a9b3db71ae|72c39c8f4390ab53|-185691910||t20727.5877191309s|s483b|483|rds|local|vector|rli_df_Voltinism||0||
-plot_rli_change_boot_Voltinism|stem|f6d1a3c204a20494|090d6336cd08cec5|678c3b5bc90caf8a|341735481||t20727.587729758s|s1127604b|1127604|rds|local|vector|||0.453|Using shapes for an ordinal variable is not advised|
 rli_change_effects_Voltinism|stem|7b792c8992f53735|5c19a305680ea551|5ee2d027d1b41fc2|2119286570||t20727.5877300473s|s827b|827|rds|local|vector|||0.016||
 rli_df_TemperatureRange_cf28c29177bbacb5|branch|24ccad6b8c819fc8|96599cc1a48be531|bacdeead3db8d937|-1189336277||t20727.5877302982s|s482b|482|rds|local|vector|rli_df_TemperatureRange||0||
 rli_df_TemperatureRange_aae6bfb677ceeb61|branch|ca7f114c21d8c97c|96599cc1a48be531|6abb793edf0a6b88|1474527042||t20727.5877303792s|s493b|493|rds|local|vector|rli_df_TemperatureRange||0||
 rli_df_TemperatureRange_f9d9962059a88829|branch|5c6f6016b9992cf4|96599cc1a48be531|429ce48f98e2c574|-879336900||t20727.5877304371s|s457b|457|rds|local|vector|rli_df_TemperatureRange||0||
 rli_df_TemperatureRange_670b2cdc84f54419|branch|d6991d333d0554e2|96599cc1a48be531|8ad7b6810e3b9f4b|1173098535||t20727.5877304834s|s478b|478|rds|local|vector|rli_df_TemperatureRange||0||
-plot_rli_change_boot_TemperatureRange|stem|5d5a16c77b9a6cc7|e873f3310bb5e07b|57a48ae4c0cda761|-2104838272||t20727.5877396309s|s1130230b|1130230|rds|local|vector|||0.453|Using shapes for an ordinal variable is not advised|
 rli_change_effects_TemperatureRange|stem|23f0dfb3047705b9|0e6eb51d824fedd6|ff9a593f50171f66|1687429696||t20727.5877399203s|s825b|825|rds|local|vector|||0||
 rli_change_effects_RangeSize|stem|718654ae2ba24152|21ca53893f384c7e|9d548a713609652e|1896742986||t20727.5877400939s|s815b|815|rds|local|vector|||0||
-plot_rli_change_boot_RangeSize|stem|2b89f38691de641b|a8b51bbed703efdf|50090987bd157722|-1805928475||t20727.5877492039s|s1121155b|1121155|rds|local|vector|||0.469|Using shapes for an ordinal variable is not advised|
 rli_df_RangeSize_3ebc23d96274ad83|branch|8ed6d7c169c1cdb4|1154c3021c6ce4d1|47f9dc91fdb405b6|-1138346916||t20727.5877497061s|s451b|451|rds|local|vector|rli_df_RangeSize||0||
 rli_df_RangeSize_b370f5dc177280e6|branch|20a9ec3de4211009|1154c3021c6ce4d1|af2b09916f29a15c|-249150409||t20727.5877497756s|s467b|467|rds|local|vector|rli_df_RangeSize||0||
 rli_df_RangeSize_5844a33ce40d1c71|branch|c225772d41d115b6|1154c3021c6ce4d1|1d3e4542341ce3c2|-999708175||t20727.587749845s|s479b|479|rds|local|vector|rli_df_RangeSize||0||
 rli_df_RangeSize_92d3239724f9d594|branch|5393920d26375576|1154c3021c6ce4d1|06bb7c43ac3586fd|1354749716||t20727.5877499029s|s482b|482|rds|local|vector|rli_df_RangeSize||0||
-vis_rli_year_results_GlobalDistribution|stem|f060ba30b4cd953a|fb8f5450852c6ede|e5642ea254a8d9fa|-589529231||t20727.5877573556s|s284065b|284065|rds|local|vector|||0.546||
-rli_change_effects_path_GlobalDistribution|stem|2fc7a2396b8a7052|b5173190adf9b7a7|0a643b7e55da20d5|-398632639||t20727.5877579128s|s109b|109|rds|local|vector|||0.016||
-vis_rli_change_results_GlobalDistribution|stem|8da918707e1b8992|2283139c47f66ef9|a92dd281a302c8bf|997453480||t20727.5877658604s|s241097b|241097|rds|local|vector|||0.594||
-rli_change_effects_path_Elevation|stem|7bda75807ef4d59c|05b57cf6708bc339|f1eeea7898b44a48|816292276||t20727.5877661845s|s101b|101|rds|local|vector|||0||
-vis_rli_change_results_Elevation|stem|aaa7511dfc28c099|9eb36b88ea1a9efe|65831719522567aa|2027764420||t20727.5877733289s|s239191b|239191|rds|local|vector|||0.531||
-vis_rli_year_results_Elevation|stem|6e6fbfc8894eba7b|a2ff8a11af5ff259|797e37c5e74cf43b|-1723137669||t20727.5877799737s|s281525b|281525|rds|local|vector|||0.469||
-vis_rli_change_results_HostPlantType|stem|977b317bf64acd06|247211d68c1b60da|3d460283eb8bb400|-1733675219||t20727.587787068s|s239767b|239767|rds|local|vector|||0.5||
-rli_change_effects_path_HostPlantType|stem|1c889bb65ee88ba4|e86000183ac52c96|a900dd36dce7bfb4|1911187015||t20727.5877873342s|s105b|105|rds|local|vector|||0||
-vis_rli_year_results_HostPlantType|stem|fdba4973818a55df|ebf7156356edfaea|f298d7d59c6a1dbb|-1858481689||t20727.5877937578s|s281669b|281669|rds|local|vector|||0.453||
-rli_change_effects_path_Wingspan|stem|6c7346833a9c1678|88cfbcfb86bbd6c3|ea720cfc9918356a|-2091300524||t20727.5877941861s|s100b|100|rds|local|vector|||0||
-vis_rli_change_results_Wingspan|stem|9b3e90bfdf749e88|ff45e768bcdfcb45|d1314031a0c364cb|523355017||t20727.5878012979s|s239536b|239536|rds|local|vector|||0.531||
-vis_rli_year_results_Wingspan|stem|7f7ec6af61164348|7cf3f73bfee96210|4ba041697745d118|102493536||t20727.5878079583s|s282586b|282586|rds|local|vector|||0.468||
-vis_rli_change_results_Specialisation|stem|a42e4f5be2e15982|4c6eb270e071d4d0|6184c522aa26a674|-1544559524||t20727.5878152746s|s239159b|239159|rds|local|vector|||0.531||
-rli_change_effects_path_Specialisation|stem|1aa2dddfc3ea656f|eebee1775fef614c|12738a1eea0366ee|2086012661||t20727.5878156713s|s106b|106|rds|local|vector|||0||
-vis_rli_year_results_Specialisation|stem|6934d085375f831a|a4914fa2421ec299|1c59687836eff57c|2118864519||t20727.5878219791s|s281763b|281763|rds|local|vector|||0.438||
-rli_change_effects_path_BiotopePreference|stem|53bcb9f7ede20cc1|a909c43392fc1dc1|4ec5bc94e44ad644|1649879756||t20727.5878223718s|s109b|109|rds|local|vector|||0.016||
-vis_rli_change_results_BiotopePreference|stem|c283e2a9de717558|2b956b38908f4957|50782ae311acd0fc|-1841557741||t20727.5878305252s|s241489b|241489|rds|local|vector|||0.594||
-vis_rli_year_results_BiotopePreference|stem|622bdbec4b7d0acd|f5edde6addfca163|dc669c7ae85c5d18|-416605080||t20727.5878377921s|s284937b|284937|rds|local|vector|||0.5||
-vis_rli_change_results_Overall|stem|b7df85a317df4074|55b5cc4b67e374fd|6b8210da55477cfa|-1404457184||t20727.587845137s|s238285b|238285|rds|local|vector|||0.515||
-rli_change_effects_path_Overall|stem|dfc747a7eb30eee0|88331412365a0bd7|6b09b019216ae7c3|1136836070||t20727.5878455004s|s99b|99|rds|local|vector|||0.016||
-vis_rli_year_results_Overall|stem|271c928795a5168a|bf661bcc0a18dd7b|f3cbe98b0d9d0b9a|-946970922||t20727.587852017s|s278755b|278755|rds|local|vector|||0.453||
-rli_change_effects_path_SpeciesTemperatureIndex|stem|d33fa08da28f6e95|92a3671e06e2e503|0e172d3abee12320|-1056299502||t20727.5878525378s|s115b|115|rds|local|vector|||0.016||
-vis_rli_change_results_SpeciesTemperatureIndex|stem|9825e30754f5e79f|35558413fc8dd7f3|98c7ddb362dd7c00|-1186647176||t20727.5878605285s|s239725b|239725|rds|local|vector|||0.593||
-vis_rli_year_results_SpeciesTemperatureIndex|stem|abdd47967c7d8fdf|f9323ac5e3189e1b|f980192f8c9463d3|-113066470||t20727.5878677919s|s282790b|282790|rds|local|vector|||0.5||
-vis_rli_change_results_OverwinteringStage|stem|80a2dcc0618052f0|886a7afddea14b6a|15dca9ff2535212e|1990964481||t20727.587875663s|s239644b|239644|rds|local|vector|||0.594||
-rli_change_effects_path_OverwinteringStage|stem|1c1a51a59a0916e0|00ea980db065ef16|456b25d53e221e76|298833365||t20727.5878760985s|s110b|110|rds|local|vector|||0||
-vis_rli_year_results_OverwinteringStage|stem|d81da75ab512558a|3472c7560dda73bd|2482d973c983f82c|-1989103345||t20727.5878837761s|s282451b|282451|rds|local|vector|||0.562||
-rli_change_effects_path_Voltinism|stem|43b407818c52f41e|b56e561e15bee655|30619c01bf4e672a|384767672||t20727.5878842727s|s101b|101|rds|local|vector|||0||
-vis_rli_year_results_Voltinism|stem|078db50a4ae04572|1aee07c933bb7a65|4492337df7a28f49|-523824220||t20727.5878913694s|s282723b|282723|rds|local|vector|||0.516||
-vis_rli_change_results_Voltinism|stem|c28be20e773e2521|ed12c5bf305dacec|09ec2a28774eb360|421697289||t20727.5878993982s|s239649b|239649|rds|local|vector|||0.594||
-vis_rli_change_results_TemperatureRange|stem|81244c98bc136027|3ead49f8762005cb|2f1077c3055e59a1|146270739||t20727.5879075662s|s240276b|240276|rds|local|vector|||0.594||
-vis_rli_year_results_TemperatureRange|stem|4593d6918f92ccb9|bd377e7b8f5783bf|a44a4bbb78049153|-1756386132||t20727.5879154708s|s282834b|282834|rds|local|vector|||0.547||
-rli_change_effects_path_TemperatureRange|stem|022b34050096cd67|d833b66af4e41519|a16535c2149ce42c|1962844965||t20727.5879158007s|s106b|106|rds|local|vector|||0.016||
-rli_change_effects_path_RangeSize|stem|ec9c3d7032b37a55|4541bfb689de65ad|0b0459427f7d9a03|-1713077759||t20727.5879160554s|s99b|99|rds|local|vector|||0||
-vis_rli_change_results_RangeSize|stem|5d4dfbb82a2eb389|be620cae30c2bf5a|ccee5d9e24243be2|-377008103||t20727.5879228671s|s239454b|239454|rds|local|vector|||0.484||
-vis_rli_year_results_RangeSize|stem|710cc69ba1720a19|10e0eb2d6f9ed6c5|cc869b3e017943f7|1006045445||t20727.5879295832s|s282571b|282571|rds|local|vector|||0.469||
+order_trait_values|function|c8ee9a93b6e41919
+boot_to_dataframe|function|59adbd514fc331d3
+calculate_rli|function|78d90f48b3f507e4
+write_effects_table|function|4269492a1ba684b5
+add_effect_classification|function|c21cb5192c658102
+bootstrap_rli|function|eec01246d308f34d
+bootci_to_dataframe|function|945240b241ae9288
+save_figure|function|abac1c985d5965e8
+tar_read_rli|function|554d5b090c17fe13
+plot_bootstrap_results|function|5c72fc98d77c3fdd
+plot_rli_year_results|function|638f73a8edcdf331
+plot_rli_change_results|function|1259ed97dce34eb7
+calculate_rli_change|function|72b6fc9c93c99d5f
+plot_rli_change_boot_GlobalDistribution|stem|92f6af5523e07c98|305e18c29949d63a|7d11c9289cb0fb5f|1125966477||t20731.4899729614s|s1326430b|1326430|rds|local|vector|||1.031|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_Elevation|stem|eb217f6095e3d4bd|48cf5e7a215f55b6|629016eaa8d095cb|1171510859||t20731.4899804113s|s917816b|917816|rds|local|vector|||0.375|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_HostPlantType|stem|22caef542bc685e0|021dbe8fd7739b0d|970501295bf0c566|946579910||t20731.489988594s|s919722b|919722|rds|local|vector|||0.391|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_Wingspan|stem|7800f8bd2f5e35e8|4b0743da916e8ad6|71122963d97b4ce2|-954683049||t20731.4899979033s|s1111086b|1111086|rds|local|vector|||0.468|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_Specialisation|stem|9a30385d83d9dd15|511f14e0da54e4ac|14be8bef5c7326c2|1058787757||t20731.4900053935s|s902272b|902272|rds|local|vector|||0.36|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_BiotopePreference|stem|a56bc137f61286b5|f1718b0745b7f198|3e264e701ab621a1|1666907726||t20731.4900195105s|s1516540b|1516540|rds|local|vector|||0.719|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_Overall|stem|076902bd6ab00757|dd6df1a5a57bcd2b|e0f05eb31faab97d|-2128178464||t20731.4900239131s|s469444b|469444|rds|local|vector|||0.234|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_SpeciesTemperatureIndex|stem|aceba13e2c5afad7|10db389c5600c6b9|90464599bcb02733|-1440144190||t20731.4900332056s|s1129335b|1129335|rds|local|vector|||0.453|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_OverwinteringStage|stem|0f23630736414095|a3da4da12031212a|3c971ee66c29e88e|888320264||t20731.4900426048s|s1095037b|1095037|rds|local|vector|||0.453|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_Voltinism|stem|e7ec1e616e725628|090d6336cd08cec5|3b8b5fa3eb68d42f|341735481||t20731.490052387s|s1127605b|1127605|rds|local|vector|||0.469|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_TemperatureRange|stem|88a3bf01b37e4e34|e873f3310bb5e07b|a7b33232456ed88d|-2104838272||t20731.4900620615s|s1129615b|1129615|rds|local|vector|||0.453|Using shapes for an ordinal variable is not advised|
+plot_rli_change_boot_RangeSize|stem|481a55040d9e3607|a8b51bbed703efdf|12360adafc239e04|-1805928475||t20731.4900715344s|s1121156b|1121156|rds|local|vector|||0.469|Using shapes for an ordinal variable is not advised|
+vis_rli_year_results_GlobalDistribution|stem|1ed64a51637c3a96|fb8f5450852c6ede|095f6d0bc40e2041|-589529231||t20731.4900810036s|s284064b|284064|rds|local|vector|||0.672||
+rli_change_effects_path_GlobalDistribution|stem|2fc7a2396b8a7052|b5173190adf9b7a7|39c2ca64b65c6954|-398632639||t20731.4900821611s|s109b|109|rds|local|vector|||0.079||
+vis_rli_change_results_GlobalDistribution|stem|c107b43b575f344a|2283139c47f66ef9|c7887b5818bb896c|997453480||t20731.4900891933s|s241096b|241096|rds|local|vector|||0.515||
+rli_change_effects_path_Elevation|stem|7bda75807ef4d59c|05b57cf6708bc339|d51eb0c7e12a5e62|816292276||t20731.4900895484s|s101b|101|rds|local|vector|||0||
+vis_rli_change_results_Elevation|stem|8ab96f86da5864f6|9eb36b88ea1a9efe|45534f1bf96d3c15|2027764420||t20731.4900960658s|s239191b|239191|rds|local|vector|||0.484||
+vis_rli_year_results_Elevation|stem|917032e1afc9585d|a2ff8a11af5ff259|933f666adbd9d00e|-1723137669||t20731.4901021639s|s281524b|281524|rds|local|vector|||0.422||
+vis_rli_change_results_HostPlantType|stem|83bdb8bedb55100e|247211d68c1b60da|25170da7d1a759bf|-1733675219||t20731.4901089232s|s239766b|239766|rds|local|vector|||0.5||
+rli_change_effects_path_HostPlantType|stem|1c889bb65ee88ba4|e86000183ac52c96|3cb2da8ec66108d8|1911187015||t20731.4901093283s|s105b|105|rds|local|vector|||0.016||
+vis_rli_year_results_HostPlantType|stem|2edc417c0b2bd46a|ebf7156356edfaea|957196508b318db6|-1858481689||t20731.4901148216s|s281669b|281669|rds|local|vector|||0.375||
+rli_change_effects_path_Wingspan|stem|6c7346833a9c1678|88cfbcfb86bbd6c3|0a5e9db0c510d1c0|-2091300524||t20731.4901150875s|s100b|100|rds|local|vector|||0.016||
+vis_rli_change_results_Wingspan|stem|6317e951d53f864e|ff45e768bcdfcb45|3cc37a9c058c08d2|523355017||t20731.490121665s|s239537b|239537|rds|local|vector|||0.484||
+vis_rli_year_results_Wingspan|stem|0629873919457c52|7cf3f73bfee96210|08dd38ea05408088|102493536||t20731.4901279857s|s282584b|282584|rds|local|vector|||0.422||
+vis_rli_change_results_Specialisation|stem|6af5aad93552f143|4c6eb270e071d4d0|dc48554c3eeb658a|-1544559524||t20731.4901350412s|s239159b|239159|rds|local|vector|||0.485||
+rli_change_effects_path_Specialisation|stem|1aa2dddfc3ea656f|eebee1775fef614c|e96b934a3030d5ac|2086012661||t20731.4901354722s|s106b|106|rds|local|vector|||0.016||
+vis_rli_year_results_Specialisation|stem|a6edaf1c54db6ef8|a4914fa2421ec299|3dd5ee3ae1e638fa|2118864519||t20731.4901414344s|s281762b|281762|rds|local|vector|||0.421||
+rli_change_effects_path_BiotopePreference|stem|53bcb9f7ede20cc1|a909c43392fc1dc1|a641b969c2b2e82f|1649879756||t20731.4901420016s|s109b|109|rds|local|vector|||0.015||
+vis_rli_change_results_BiotopePreference|stem|88ef9c880f7a06f9|2b956b38908f4957|3ad97367534fe117|-1841557741||t20731.4901487863s|s241489b|241489|rds|local|vector|||0.5||
+vis_rli_year_results_BiotopePreference|stem|0a54e4bc85a4991c|f5edde6addfca163|3f94b894e165c93f|-416605080||t20731.490155684s|s284936b|284936|rds|local|vector|||0.469||
+vis_rli_change_results_Overall|stem|7a0adc1417baac05|55b5cc4b67e374fd|794fb1a60220cfca|-1404457184||t20731.4901625586s|s238283b|238283|rds|local|vector|||0.5||
+rli_change_effects_path_Overall|stem|dfc747a7eb30eee0|88331412365a0bd7|642383ec09fc16b6|1136836070||t20731.4901627904s|s99b|99|rds|local|vector|||0||
+vis_rli_year_results_Overall|stem|1f139a3d18d349e8|bf661bcc0a18dd7b|3ab8eaf58d5fd4b4|-946970922||t20731.4901682088s|s278754b|278754|rds|local|vector|||0.375||
+rli_change_effects_path_SpeciesTemperatureIndex|stem|d33fa08da28f6e95|92a3671e06e2e503|aed63c46f06873e7|-1056299502||t20731.4901685138s|s115b|115|rds|local|vector|||0.015||
+vis_rli_change_results_SpeciesTemperatureIndex|stem|c967a719a04e58f5|35558413fc8dd7f3|c1039873a5fc3e35|-1186647176||t20731.4901755311s|s239726b|239726|rds|local|vector|||0.516||
+vis_rli_year_results_SpeciesTemperatureIndex|stem|24c8047803cc4581|f9323ac5e3189e1b|c7428d4a2c4c8d85|-113066470||t20731.4901822171s|s282790b|282790|rds|local|vector|||0.453||
+vis_rli_change_results_OverwinteringStage|stem|3c18db80ae480d36|886a7afddea14b6a|96355b6b40b05252|1990964481||t20731.4901889999s|s239645b|239645|rds|local|vector|||0.484||
+rli_change_effects_path_OverwinteringStage|stem|1c1a51a59a0916e0|00ea980db065ef16|21be69097fa437a0|298833365||t20731.4901894525s|s110b|110|rds|local|vector|||0.016||
+vis_rli_year_results_OverwinteringStage|stem|4fc1b0c4484c8235|3472c7560dda73bd|23d49b88634c23b4|-1989103345||t20731.4901954123s|s282450b|282450|rds|local|vector|||0.407||
+rli_change_effects_path_Voltinism|stem|43b407818c52f41e|b56e561e15bee655|b8e381be3cb6925a|384767672||t20731.4901958344s|s101b|101|rds|local|vector|||0.016||
+vis_rli_year_results_Voltinism|stem|641bdf5a1ddad983|1aee07c933bb7a65|60204309617bd960|-523824220||t20731.4902023588s|s282722b|282722|rds|local|vector|||0.437||
+vis_rli_change_results_Voltinism|stem|b4e2f7360407a46d|ed12c5bf305dacec|a554b5f13c261451|421697289||t20731.4902093236s|s239650b|239650|rds|local|vector|||0.515||
+vis_rli_change_results_TemperatureRange|stem|34d9b90deec296f4|3ead49f8762005cb|ad288fc5cb86cf39|146270739||t20731.4902165872s|s239627b|239627|rds|local|vector|||0.531||
+vis_rli_year_results_TemperatureRange|stem|82720607cee802a1|bd377e7b8f5783bf|01a427e53eb0f69b|-1756386132||t20731.4902232594s|s282737b|282737|rds|local|vector|||0.453||
+rli_change_effects_path_TemperatureRange|stem|022b34050096cd67|d833b66af4e41519|48e3bd8827929b57|1962844965||t20731.4902237939s|s106b|106|rds|local|vector|||0.032||
+rli_change_effects_path_RangeSize|stem|ec9c3d7032b37a55|4541bfb689de65ad|50065cfbb0345a51|-1713077759||t20731.4902240685s|s99b|99|rds|local|vector|||0||
+vis_rli_change_results_RangeSize|stem|d4148d6e61b01465|be620cae30c2bf5a|3ed8b032fa760c15|-377008103||t20731.490231211s|s239455b|239455|rds|local|vector|||0.531||
+vis_rli_year_results_RangeSize|stem|c257851b639835ca|10e0eb2d6f9ed6c5|0657413e3727d667|1006045445||t20731.4902377785s|s282570b|282570|rds|local|vector|||0.453||
