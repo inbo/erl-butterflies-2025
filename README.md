@@ -131,7 +131,7 @@ output/
 
 The `source/targets/objects` directory contains cached intermediate results managed by `{targets}` and is used to avoid unnecessarily repeating computationally intensive steps.
 
-The figures for the paper are created in `create_figures_paper.R`.
+The figures for the paper are created in [`source/create_figures_paper.R`](https://github.com/inbo/erl-butterflies-2025/blob/main/source/create_figures_paper.R).
 The script will download the analysis results from Zenodo if necessary (DOI: [10.5281/zenodo.22940460](https://doi.org/10.5281/zenodo.22940460))
 
 ### Repo structure
