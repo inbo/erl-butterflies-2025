@@ -20,5 +20,5 @@ spelling:
   ignore:
   - .github
   - LICENSE.md
-pak: eblondel/zen4R@0.10.6
+pak: []
 gha_install: []
