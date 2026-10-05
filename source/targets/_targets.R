@@ -17,14 +17,14 @@ tar_source("./source/R")
 dir.create("data", showWarnings = FALSE, recursive = TRUE)
 if (!file.exists("./data/tblTrait.csv")) {
   zen4R::download_zenodo(
-    "10.5281/zenodo.22940460",
+    "10.5281/zenodo.23164000",
     path = "data",
     files = list("tblTrait.csv")
   )
 }
 if (!file.exists("./data/tblRLCEurope20102025.csv")) {
   zen4R::download_zenodo(
-    "10.5281/zenodo.22940460",
+    "10.5281/zenodo.23164000",
     path = "data",
     files = list("tblRLCEurope20102025.csv")
   )

@@ -48,7 +48,7 @@ rli_change_effects_raw <- lapply(traits, function(t) {
     )
   } else {
     zen4R::download_zenodo(
-      "10.5281/zenodo.22940460",
+      "10.5281/zenodo.23164000",
       path = path,
       files = list(file)
     )
