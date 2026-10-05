@@ -22,5 +22,5 @@ spelling:
   - LICENSE.md
 pak: []
 gha_install:
-- sudo apt-get update
-- sudo apt-get install -y libsecret-1-dev
+- apt-get update
+- apt-get install -y libsecret-1-dev
