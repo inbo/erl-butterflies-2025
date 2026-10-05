@@ -14,4 +14,10 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: inbo/actions/check_project@main
+      - name: "Check project with checklist"
+        uses: inbo/actions/check_project@main
+        with:
+          path: "."
+          cmd: |
+            sudo apt-get update
+            sudo apt-get install --yes libsecret-1-dev

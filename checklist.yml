@@ -21,6 +21,4 @@ spelling:
   - .github
   - LICENSE.md
 pak: []
-gha_install:
-- apt-get update
-- apt-get install -y libsecret-1-dev
+gha_install: []
