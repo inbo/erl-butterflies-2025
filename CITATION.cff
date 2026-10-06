@@ -40,7 +40,7 @@ contact:
     (Nijmegen); Butterfly Conservation Europe
   orcid: 0000-0002-7947-3788
 doi: ~
-license: cc-by-4.0
+license: CC-BY-4.0
 repository-code: https://github.com/inbo/erl-butterflies-2025/
 type: software
 abstract: "This repository contains reproducible analyses investigating changes in
