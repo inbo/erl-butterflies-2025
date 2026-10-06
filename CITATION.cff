@@ -10,7 +10,7 @@ authors:
   orcid: 0000-0002-7947-3788
 - given-names: Rudi
   family-names: Verovnik
-  affiliation: University of Ljubljana
+  affiliation: Butterfly Conservation Europe; University of Ljubljana
   orcid: 0000-0002-5841-5925
 - given-names: Ward
   family-names: Langeraert
@@ -28,9 +28,9 @@ authors:
   orcid: 0000-0003-0927-2216
 keywords:
 - European butterflies
-- Red List Index
-- extinction risk
-- conservation status
+- Red List
+- IUCN
+- conservation
 - species traits
 - insect decline
 contact:
