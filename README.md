@@ -10,7 +10,7 @@
 # Code and analyses for the 2025 European Red List of butterflies and comparison with the 2010 assessment
 
 [Maes, Dirk![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-7947-3788)[^aut][^cre][^INBO][^RIBES][^BtCE];
-[Verovnik, Rudi![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5841-5925)[^aut][^UnoL];
+[Verovnik, Rudi![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5841-5925)[^aut][^BtCE][^UnoL];
 [Langeraert, Ward![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0000-0002-5900-8109)[^aut][^INBO];
 [Warren, Martin S.](mailto:martin.warren%40bc-europe.eu)[^aut][^BtCE];
 [Ellis, Sam](mailto:sam.ellis%40bc-europe.eu)[^aut][^BtCE];
@@ -28,7 +28,7 @@
 [^RIBES]: Radboud University (Nijmegen)
 [^UnoL]: University of Ljubljana
 
-**keywords**:  European butterflies; Red List Index; extinction risk; conservation status; species traits; insect decline
+**keywords**:  European butterflies; Red List; IUCN; conservation; species traits; insect decline
 
 <!-- community: inbo -->
 

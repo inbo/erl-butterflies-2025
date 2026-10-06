@@ -6,9 +6,9 @@
   "description": "<p>This repository contains reproducible analyses investigating changes in the conservation status of European butterflies by comparing the 2010 and 2025 European Red Lists. It quantifies changes in extinction risk using the Red List Index (RLI) and examines how ecological, biogeographical, and life-history traits are associated with changes in species’ threat status. The analyses combine Red List assessments with species trait data to identify the groups of butterflies that are most vulnerable and to provide evidence for conservation policy and biodiversity monitoring across Europe.<\/p>",
   "keywords": [
     "European butterflies",
-    "Red List Index",
-    "extinction risk",
-    "conservation status",
+    "Red List",
+    "IUCN",
+    "conservation",
     "species traits",
     "insect decline"
   ],
@@ -33,7 +33,7 @@
     },
     {
       "name": "Verovnik, Rudi",
-      "affiliation": "University of Ljubljana",
+      "affiliation": "Butterfly Conservation Europe; University of Ljubljana",
       "orcid": "0000-0002-5841-5925"
     },
     {
