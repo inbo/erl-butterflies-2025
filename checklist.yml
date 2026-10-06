@@ -20,6 +20,5 @@ spelling:
   ignore:
   - .github
   - LICENSE.md
-pak:
-- inbo/citeme@devel
+pak: inbo/citeme@devel
 gha_install: []
