@@ -18,11 +18,11 @@
       "name": "Maes, Dirk",
       "affiliation": "Research Institute for Nature and Forest (INBO); Radboud University (Nijmegen); Butterfly Conservation Europe",
       "orcid": "0000-0002-7947-3788",
-      "type": "contactperson"
+      "type": "ContactPerson"
     },
     {
       "name": "Research Institute for Nature and Forest (INBO)",
-      "type": "rightsholder"
+      "type": "RightsHolder"
     }
   ],
   "creators": [
