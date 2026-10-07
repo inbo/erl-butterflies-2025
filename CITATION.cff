@@ -39,7 +39,7 @@ contact:
   affiliation: Research Institute for Nature and Forest (INBO); Radboud University
     (Nijmegen); Butterfly Conservation Europe
   orcid: 0000-0002-7947-3788
-doi: ~
+doi: 10.5281/zenodo.23197530
 license: CC-BY-4.0
 repository-code: https://github.com/inbo/erl-butterflies-2025/
 type: software
@@ -51,3 +51,6 @@ abstract: "This repository contains reproducible analyses investigating changes 
   with species trait data to identify the groups of butterflies that are most vulnerable
   and to provide evidence for conservation policy and biodiversity monitoring across
   Europe."
+identifiers:
+- type: doi
+  value: 10.5281/zenodo.23197530

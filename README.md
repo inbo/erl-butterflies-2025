@@ -1,10 +1,11 @@
 <!-- badges: start -->
-![Language: en-GB](https://img.shields.io/badge/language-en--GB-c04384)
-[![CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-brightgreen)](https://raw.githubusercontent.com/inbo/citeme/refs/heads/main/inst/licenses/cc_by_4_0.md)
-[![Release](https://img.shields.io/github/release/inbo/erl-butterflies-2025.svg)](https://github.com/inbo/erl-butterflies-2025/releases)
-![GitHub repo size](https://img.shields.io/github/repo-size/inbo/erl-butterflies-2025)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Release](https://img.shields.io/github/release/inbo/erl-butterflies-2025.svg)](https://github.com/inbo/erl-butterflies-2025/releases)
+[![CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-brightgreen)](https://raw.githubusercontent.com/inbo/citeme/refs/heads/main/inst/licenses/cc_by_4_0.md)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23197530.svg)](https://doi.org/10.5281/zenodo.23197530)
 [![data](https://badgen.net/static/data/10.5281%2Fzenodo.23164000/orange)](https://doi.org/10.5281/zenodo.23164000)
+![GitHub repo size](https://img.shields.io/github/repo-size/inbo/erl-butterflies-2025)
+![Language: en-GB](https://img.shields.io/badge/language-en--GB-c04384)
 <!-- badges: end -->
 
 # Code and analyses for the 2025 European Red List of butterflies and comparison with the 2010 assessment
@@ -57,7 +58,7 @@ install.packages(c(
 ))
 ```
 
-The `effectclass` package is installed from GitHub:
+The `{effectclass}` package is installed from GitHub:
 
 ```r
 install.packages("remotes")
@@ -71,7 +72,7 @@ The project should be run from its root directory so that all relative paths are
 
 #### 3. Run the analysis
 
-The analyses are implemented as a [`targets`](https://books.ropensci.org/targets/) pipeline.
+The analyses are implemented as a [`{targets}`](https://books.ropensci.org/targets/) pipeline.
 Run the complete pipeline with:
 
 ```r
@@ -132,7 +133,7 @@ output/
 The `source/targets/objects` directory contains cached intermediate results managed by `{targets}` and is used to avoid unnecessarily repeating computationally intensive steps.
 
 The figures for the paper are created in [`source/create_figures_paper.R`](https://github.com/inbo/erl-butterflies-2025/blob/main/source/create_figures_paper.R).
-The script will download the analysis results from Zenodo if necessary (DOI: [10.5281/zenodo.23164000](https://doi.org/10.5281/zenodo.23164000))
+The script will download the analysis results from Zenodo if necessary (DOI: [10.5281/zenodo.23164000](https://doi.org/10.5281/zenodo.23164000)).
 
 ### Repo structure
 
@@ -153,10 +154,10 @@ The script will download the analysis results from Zenodo if necessary (DOI: [10
 ├── .zenodo.json                   ├ zenodo metadata
 ├── .gitignore                     ├ files to ignore
 │
-├── checklist.yml                  ├ options checklist package (https://github.com/inbo/checklist)
+├── checklist.yml                  ├ options {checklist} package (https://github.com/inbo/checklist)
 ├── organisation.yml               ├ organisation settings checklist package
 ├── inst
-│   └── en_gb.dic                  ├ dictionary with words that should not be checked by checklist
+│   └── en_gb.dic                  ├ dictionary with words that should not be checked by {checklist}
 └── .github                        │ 
     ├── workflows                  │ 
     │   └── checklist_project.yml  ├ GitHub repo settings
