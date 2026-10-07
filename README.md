@@ -1,11 +1,9 @@
 <!-- badges: start -->
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Release](https://img.shields.io/github/release/inbo/erl-butterflies-2025.svg)](https://github.com/inbo/erl-butterflies-2025/releases)
-
 [![CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-brightgreen)](https://raw.githubusercontent.com/inbo/citeme/refs/heads/main/inst/licenses/cc_by_4_0.md)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23197530.svg)](https://doi.org/10.5281/zenodo.23197530)
 [![data](https://badgen.net/static/data/10.5281%2Fzenodo.23164000/orange)](https://doi.org/10.5281/zenodo.23164000)
-
 ![GitHub repo size](https://img.shields.io/github/repo-size/inbo/erl-butterflies-2025)
 ![Language: en-GB](https://img.shields.io/badge/language-en--GB-c04384)
 <!-- badges: end -->
