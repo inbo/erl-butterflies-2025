@@ -131,9 +131,10 @@ output/
 ```
 
 The `source/targets/objects` directory contains cached intermediate results managed by `{targets}` and is used to avoid unnecessarily repeating computationally intensive steps.
+The final results are available on Zenodo as CSV files (DOI: [10.5281/zenodo.23164000](https://doi.org/10.5281/zenodo.23164000)).
 
-The figures for the paper are created in [`source/create_figures_paper.R`](https://github.com/inbo/erl-butterflies-2025/blob/main/source/create_figures_paper.R).
-The script will download the analysis results from Zenodo if necessary (DOI: [10.5281/zenodo.23164000](https://doi.org/10.5281/zenodo.23164000)).
+This repository contains the code and data analysis supporting the manuscript "Changes in the Red List Index of European butterflies: Extinction risk is trait-dependent" (DOI: *pending publication*).
+The figures featured in the paper can be generated using [`source/create_figures_paper.R`](https://github.com/inbo/erl-butterflies-2025/blob/main/source/create_figures_paper.R).
 
 ### Repo structure
 
