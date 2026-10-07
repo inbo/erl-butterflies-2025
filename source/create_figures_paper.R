@@ -19,7 +19,226 @@ source(file.path("source", "R", "order_trait_values.R"))
 reference <- 0
 threshold <- 0.02
 
+###############################################################################
+##
+## Overall plots
+##
+###############################################################################
+overall_trait_data <- tar_read_rli(
+  "single_trait_data_joined",
+  trait = "Overall"
+)
 
+plot_trait_data <- overall_trait_data %>%
+  mutate(
+    rl_desc = factor(
+      case_when(
+        RLC == "DD" ~ "Data Deficient",
+        RLC == "LC" ~ "Least Concern",
+        RLC == "NT" ~ "Near Threatened",
+        RLC == "VU" ~ "Vulnerable",
+        RLC == "EN" ~ "Endangered",
+        RLC == "CR" ~ "Critically Endangered",
+        RLC == "RE" ~ "Regionally Extinct",
+        RLC == "EX" ~ "Globally Extinct"
+      ),
+      levels = c(
+        "Globally Extinct",
+        "Regionally Extinct",
+        "Critically Endangered",
+        "Endangered",
+        "Vulnerable",
+        "Near Threatened",
+        "Least Concern",
+        "Data Deficient"
+      )
+    )
+  ) %>%
+  mutate(year_num = as.integer(gsub("y", "", Year))) %>%
+  count(rl_desc, year_num) %>%
+  mutate(n_year = sum(n), .by = "year_num") %>%
+  mutate(prop = 100 * (n / n_year))
+
+p_bar_overall <- plot_trait_data %>%
+  ggplot(aes(x = factor(year_num), y = prop, fill = rl_desc)) +
+  geom_col(position = "fill", colour = "grey") +
+  labs(x = "", y = "Proportion", fill = "Red List Category") +
+  scale_y_continuous(labels = scales::percent) +
+  scale_fill_manual(
+    values = c(
+      "Globally Extinct" = "black",
+      "Regionally Extinct" = "darkgrey",
+      "Critically Endangered" = "darkred",
+      "Endangered" = "orange",
+      "Vulnerable" = "yellow",
+      "Near Threatened" = "lightyellow",
+      "Least Concern" = "darkgreen",
+      "Data Deficient" = "steelblue"
+    )
+  )
+
+save_figure(
+  p_bar_overall,
+  file_name = "erl_cat_proportions",
+  path = "output/figures/paper",
+  devices = devices,
+  width = 8,
+  height = 5
+)
+
+x <- tar_read_rli(
+  "rli_df",
+  trait = "Overall"
+)
+effects_df <- tar_read_rli(
+  "rli_change_effects",
+  trait = "Overall"
+)
+interval <- "bca"
+
+# Get trait and order trait values
+trait_char <- unique(x$trait)
+x <- order_trait_values(
+  x,
+  trait = trait_char
+)
+effects_df <- order_trait_values(
+  effects_df,
+  trait = trait_char
+)
+plot_overall_data <- x %>%
+  filter_out(int_type != interval) %>%
+  left_join(
+    effects_df %>%
+      dplyr::filter(int_type == interval) %>%
+      distinct(trait_value, effect_code, effect),
+    by = join_by("trait_value"),
+    relationship = "many-to-many"
+  ) %>%
+  mutate(
+    label = paste0(trait_value, " (n = ", n_spec, ")")
+  ) %>%
+  mutate(
+    label = factor(
+      label,
+      levels = unique(label[
+        order(as.integer(trait_value))
+      ])
+    )
+  )
+label_data <- plot_data %>%
+  summarise(
+    x = mean(Year),
+    y = mean(est_original),
+    effect_code = unique(effect_code)
+  )
+
+# Create the RLI plot
+p_year_overall <- ggplot(
+  plot_overall_data,
+  aes(
+    x = Year,
+    y = est_original
+  )
+) +
+  # Connect RLI estimates between years.
+  geom_line(
+    linewidth = 1,
+    colour = "darkgrey",
+    linetype = "dashed"
+  ) +
+
+  # Add RLI estimates.
+  geom_point(
+    size = 3.5
+  ) +
+
+  # Add confidence intervals.
+  geom_errorbar(
+    aes(
+      ymin = ll,
+      ymax = ul
+    ),
+    width = 1.5,
+    linewidth = 1
+  ) +
+
+  # Add effect classifications at the end of each line.
+  geom_label(
+    data = label_data,
+    aes(
+      x = x,
+      y = y + 0.02,
+      label = as.character(effect_code)
+    ),
+    colour = "white",
+    fill = "#6D0000",
+    label.padding = unit(0.4, "lines"),
+    label.r = unit(0.7, "lines"),
+    hjust = "center",
+    vjust = "center",
+    show.legend = FALSE
+  ) +
+
+  labs(
+    x = "",
+    y = "Red List Index"
+  ) +
+
+  # Set y-axis limits.
+  ylim(NA, 1) +
+
+  # Set x-axis limits and breaks.
+  scale_x_continuous(
+    breaks = c(2010, 2025),
+    expand = expansion(mult = c(0.05, 0.1))
+  ) +
+  theme(panel.grid.minor.x = element_blank())
+
+save_figure(
+  p_year_overall,
+  file_name = "rli_year_overall",
+  path = "output/figures/paper",
+  devices = devices,
+  width = 5,
+  height = 4
+)
+
+# Grid of plots
+figure_overall <- cowplot::plot_grid(
+  plotlist = list(p_bar_overall, p_year_overall),
+  labels = c("A.", "B."),
+  ncol = 2,
+  align = "h",
+  label_size = 12,
+  label_fontface = "bold",
+  rel_widths = c(1.7, 1),
+  hjust = 0,
+  vjust = 1
+) +
+  theme(
+    plot.margin = margin(
+      t = 10,
+      r = 0,
+      b = 0,
+      l = 10
+    )
+  )
+
+save_figure(
+  figure_overall,
+  file_name = "erl_overall",
+  path = "output/figures/paper",
+  devices = devices,
+  width = 8,
+  height = 4
+)
+
+###############################################################################
+##
+## Difference in the mean Red List Index between 2010 and 2025 per trait
+##
+###############################################################################
 ## Load data
 traits <- c(
   "Overall",
